@@ -1,0 +1,254 @@
+solid drone_mounting_bracket
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 50.00 30.00 0.00
+      vertex 50.00 0.00 0.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 0.00 30.00 0.00
+      vertex 50.00 30.00 0.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 50.00 0.00 8.00
+      vertex 50.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 50.00 30.00 8.00
+      vertex 0.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 50.00 0.00 0.00
+      vertex 50.00 0.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 50.00 0.00 8.00
+      vertex 0.00 0.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 50.00 30.00 0.00
+      vertex 0.00 30.00 0.00
+      vertex 0.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 50.00 30.00 0.00
+      vertex 0.00 30.00 8.00
+      vertex 50.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 0.00 0.00 8.00
+      vertex 0.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 0.00
+      vertex 0.00 30.00 8.00
+      vertex 0.00 30.00 0.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 50.00 0.00 0.00
+      vertex 50.00 30.00 0.00
+      vertex 50.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 50.00 0.00 0.00
+      vertex 50.00 30.00 8.00
+      vertex 50.00 0.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 12.00 30.00 8.00
+      vertex 12.00 0.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 0.00 30.00 8.00
+      vertex 12.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 28.00
+      vertex 12.00 0.00 28.00
+      vertex 12.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 28.00
+      vertex 12.00 30.00 28.00
+      vertex 0.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 12.00 0.00 8.00
+      vertex 12.00 0.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 12.00 0.00 28.00
+      vertex 0.00 0.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 30.00 8.00
+      vertex 0.00 30.00 8.00
+      vertex 0.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 30.00 8.00
+      vertex 0.00 30.00 28.00
+      vertex 12.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 0.00 0.00 28.00
+      vertex 0.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 0.00 0.00 8.00
+      vertex 0.00 30.00 28.00
+      vertex 0.00 30.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 0.00 8.00
+      vertex 12.00 30.00 8.00
+      vertex 12.00 30.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 0.00 8.00
+      vertex 12.00 30.00 28.00
+      vertex 12.00 0.00 28.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 35.00 20.00 8.00
+      vertex 35.00 10.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 12.00 20.00 8.00
+      vertex 35.00 20.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 18.00
+      vertex 35.00 10.00 18.00
+      vertex 35.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 18.00
+      vertex 35.00 20.00 18.00
+      vertex 12.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 35.00 10.00 8.00
+      vertex 35.00 10.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 35.00 10.00 18.00
+      vertex 12.00 10.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 35.00 20.00 8.00
+      vertex 12.00 20.00 8.00
+      vertex 12.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 35.00 20.00 8.00
+      vertex 12.00 20.00 18.00
+      vertex 35.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 12.00 10.00 18.00
+      vertex 12.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 12.00 10.00 8.00
+      vertex 12.00 20.00 18.00
+      vertex 12.00 20.00 8.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 35.00 10.00 8.00
+      vertex 35.00 20.00 8.00
+      vertex 35.00 20.00 18.00
+    endloop
+  endfacet
+  facet normal 0.0 0.0 0.0
+    outer loop
+      vertex 35.00 10.00 8.00
+      vertex 35.00 20.00 18.00
+      vertex 35.00 10.00 18.00
+    endloop
+  endfacet
+endsolid drone_mounting_bracket
