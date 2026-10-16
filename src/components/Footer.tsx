@@ -59,7 +59,7 @@ export function Footer() {
       </div>
 
       <div style={{ borderTop: '1px solid var(--line)', paddingTop: '20px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '11px', color: 'var(--slate)' }}>
-        <span>&copy; {new Date().getFullYear()} Namma 3D Lab. All rights reserved.</span>
+        <span>&copy; 2026 Namma 3D Lab. All rights reserved.</span>
         <span>Precision Additive Engineering &bull; Bangalore</span>
       </div>
     </footer>
