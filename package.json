@@ -1,10 +1,21 @@
 {
-  "name": "namma-3d-lab",
-  "version": "0.1.0",
+  "name": "namma-3d-lab-workspace",
+  "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "website",
+    "admin",
+    "pos"
+  ],
   "scripts": {
     "dev": "next dev -p 3003",
+    "dev:website": "npm run dev --prefix website",
+    "dev:admin": "npm run dev --prefix admin",
+    "dev:pos": "npm run dev --prefix pos",
     "build": "next build",
+    "build:website": "npm run build --prefix website",
+    "build:admin": "npm run build --prefix admin",
+    "build:pos": "npm run build --prefix pos",
     "start": "next start",
     "lint": "eslint"
   },

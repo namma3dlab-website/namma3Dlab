@@ -1,0 +1,198 @@
+/* [project]/pos/src/app/globals.css [app-client] (css) */
+:root {
+  --pos-bg: #f1f5f9;
+  --pos-card-bg: #fff;
+  --navy: #0a0d14;
+  --slate-dark: #334155;
+  --slate: #64748b;
+  --slate-light: #94a3b8;
+  --line: #e2e8f0;
+  --surface-alt: #f8fafc;
+  --green-ink: #07875d;
+  --green-subtle: #ecfdf3;
+  --lime: #8dc63f;
+  --lime-dark: #65a30d;
+  --amber: #f59e0b;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-body), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--pos-bg);
+  color: var(--navy);
+  -webkit-font-smoothing: antialiased;
+  -webkit-user-select: none;
+  user-select: none;
+  min-height: 100vh;
+  line-height: 1.4;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-heading), -apple-system, BlinkMacSystemFont, sans-serif;
+  letter-spacing: -.02em;
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.pos-input {
+  color: var(--navy);
+  background-color: #fff;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px 14px;
+  font-family: inherit;
+  font-size: 14px;
+  transition: all .2s;
+  box-shadow: 0 1px 3px #0a0d140d;
+}
+
+.pos-input:focus {
+  border-color: var(--green-ink);
+  box-shadow: 0 0 0 3px #07875d26;
+}
+
+.btn {
+  cursor: pointer;
+  white-space: nowrap;
+  border: none;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 700;
+  transition: all .15s;
+  display: inline-flex;
+}
+
+.btn:active {
+  transform: scale(.98);
+}
+
+.btn-lime {
+  background-color: var(--lime);
+  color: #0a0d14;
+  box-shadow: 0 4px 14px #8dc63f4d;
+}
+
+.btn-lime:hover {
+  background-color: #9de047;
+}
+
+.btn-dark {
+  background-color: var(--navy);
+  color: #fff;
+}
+
+.btn-dark:hover {
+  background-color: #1e293b;
+}
+
+.btn-light {
+  color: var(--slate-dark);
+  border: 1px solid var(--line);
+  background-color: #fff;
+}
+
+.btn-light:hover {
+  background-color: var(--surface-alt);
+}
+
+.btn-danger {
+  color: #dc2626;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+}
+
+.btn-danger:hover {
+  color: #fff;
+  background-color: #dc2626;
+}
+
+.btn-sm {
+  border-radius: 8px;
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
+.pos-modal-overlay {
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  background: #0a0d14a6;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  display: flex;
+  position: fixed;
+  inset: 0;
+}
+
+.pos-modal-window {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line);
+  background: #fff;
+  width: 100%;
+  max-width: 500px;
+  max-height: 92vh;
+  animation: .2s cubic-bezier(.16, 1, .3, 1) modalPop;
+  overflow-y: auto;
+  box-shadow: 0 24px 60px #0a0d1440;
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 880px) {
+  .pos-desktop-layout {
+    display: none !important;
+  }
+
+  .pos-mobile-layout {
+    display: flex !important;
+  }
+
+  .pos-modal-overlay {
+    align-items: flex-end;
+    padding: 0;
+  }
+
+  .pos-modal-window {
+    border-radius: 20px 20px 0 0;
+    max-width: 100%;
+    max-height: 90vh;
+  }
+}
+
+@media (min-width: 881px) {
+  .pos-desktop-layout {
+    display: flex !important;
+  }
+
+  .pos-mobile-layout {
+    display: none !important;
+  }
+}
+
+/*# sourceMappingURL=pos_src_app_globals_css_1igg3k2-ikub5._.single.css.map*/
