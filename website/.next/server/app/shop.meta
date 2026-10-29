@@ -1,0 +1,36 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </images/products/spiral_fluted_vase.jpg>; rel=preload; as=\"image\", </images/products/cultural_deity_idol.jpg>; rel=preload; as=\"image\", </images/products/voronoi_ambient_lamp.jpg>; rel=preload; as=\"image\", </images/products/bespoke_keychains.jpg>; rel=preload; as=\"image\", </images/products/modular_headphone_stand.jpg>; rel=preload; as=\"image\", </images/products/lithophane_photo_box.jpg>; rel=preload; as=\"image\", </images/products/hex_desk_organizer.jpg>; rel=preload; as=\"image\", </images/products/executive_nameplate.jpg>; rel=preload; as=\"image\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/shop/layout,_N_T_/shop/page,_N_T_/shop"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/shop/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49312,
+            "slots": null
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/504809879e945688cce32d15b38a9cbb3ae335620478d81c89fa13208e5c4802/$/shop",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/shop/page"
+    },
+    "isFallback": false
+  }
+}

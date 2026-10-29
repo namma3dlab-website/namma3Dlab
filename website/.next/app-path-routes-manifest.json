@@ -1,0 +1,13 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/custom-enquiry/route": "/api/custom-enquiry",
+  "/api/quote-lead/route": "/api/quote-lead",
+  "/cart/page": "/cart",
+  "/checkout/page": "/checkout",
+  "/custom/page": "/custom",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/",
+  "/products/[slug]/page": "/products/[slug]",
+  "/shop/page": "/shop"
+}

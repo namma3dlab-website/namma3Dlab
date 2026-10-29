@@ -1,0 +1,10 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/custom-enquiries/page": "/custom-enquiries",
+  "/fleet/page": "/fleet",
+  "/orders/page": "/orders",
+  "/page": "/",
+  "/payments/page": "/payments",
+  "/products/page": "/products"
+}

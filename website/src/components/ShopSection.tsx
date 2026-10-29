@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { CATALOG_PRODUCTS, Product } from '@/lib/data';
-import { ShoppingBag, Sparkles, Feather, Sun, Lamp, Key, Headphones, Moon, Grid, Plus, Check, Search, ArrowRight, Star, SlidersHorizontal } from 'lucide-react';
+import { ShoppingBag, Sparkles, Feather, Sun, Lamp, Key, Headphones, Moon, Grid, Plus, Check, Search, Star, SlidersHorizontal } from 'lucide-react';
 import { useCart } from '@/context/CartContext';
 
 interface ShopSectionProps {
@@ -38,14 +38,14 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
 
   const getProductIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Feather': return <Feather size={36} />;
-      case 'Sun': return <Sun size={36} />;
-      case 'Lamp': return <Lamp size={36} />;
-      case 'Key': return <Key size={36} />;
-      case 'Headphones': return <Headphones size={36} />;
-      case 'Moon': return <Moon size={36} />;
-      case 'Grid': return <Grid size={36} />;
-      default: return <Sparkles size={36} />;
+      case 'Feather': return <Feather size={32} />;
+      case 'Sun': return <Sun size={32} />;
+      case 'Lamp': return <Lamp size={32} />;
+      case 'Key': return <Key size={32} />;
+      case 'Headphones': return <Headphones size={32} />;
+      case 'Moon': return <Moon size={32} />;
+      case 'Grid': return <Grid size={32} />;
+      default: return <Sparkles size={32} />;
     }
   };
 
@@ -65,62 +65,59 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
     });
 
     setAddedNotice(product.name);
-    setTimeout(() => setAddedNotice(null), 2500);
-  };
-
-  const handleProductBuyNow = (product: Product) => {
-    const chosenColor = selectedColors[product.id] || (product.colors && product.colors[0]) || 'Standard';
-    handleBuy({
-      id: `${product.id}-${chosenColor.replace(/\s+/g, '-').toLowerCase()}`,
-      slug: product.slug,
-      name: `${product.name}`,
-      price: product.price,
-      meta: `${product.material} • Color: ${chosenColor}`,
-      variant: chosenColor,
-      imageGradient: product.colorGradient,
-      imageUrl: product.imageUrl,
-      iconName: product.iconName,
-      qty: 1
-    });
+    setTimeout(() => setAddedNotice(null), 2000);
   };
 
   return (
     <section className="section-wrap" id="shop" style={{ background: 'var(--paper)' }}>
-      <div className="section-head">
-        <span className="eyebrow lime">Online Store &bull; Bangalore Rapid Dispatch</span>
-        <h2>Explore our pre-printed <em>product catalogue.</em></h2>
-        <p>
+      {/* Section Head */}
+      <div className="section-head" style={{ marginBottom: '20px' }}>
+        <span className="eyebrow lime" style={{ fontSize: '10px' }}>Online Store &bull; Bangalore Studio</span>
+        <h2 style={{ fontSize: 'clamp(20px, 3.5vw, 30px)', margin: '4px 0 6px' }}>
+          Explore 3D Product Catalogue
+        </h2>
+        <p className="desktop-only" style={{ margin: 0, fontSize: '14px', color: 'var(--slate)' }}>
           High-precision 3D printed desk accessories, ambient Voronoi lighting, sacred deity idols, and executive gifts. Each item is crafted with micron tolerance, hand-inspected, and delivered across Bangalore in 24–48 hours.
         </p>
       </div>
 
-      {/* Filter, Search & Sort Bar */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '32px' }}>
-        
-        {/* Category Filter Pills */}
-        <div className="catalog-filter-bar" style={{ margin: 0 }}>
+      {/* Mobile Horizontal Category Rail & Search */}
+      <div style={{ marginBottom: '24px' }}>
+        {/* Horizontal Category Scroll Rail */}
+        <div className="mobile-category-rail" style={{ marginBottom: '14px' }}>
           {[
-            { id: 'all', label: 'All Items' },
-            { id: 'decor', label: 'Lamps & Decor' },
-            { id: 'gadgets', label: 'Desk Gadgets' },
-            { id: 'idols', label: 'Sacred Idols' },
-            { id: 'gifts', label: 'Personalized Gifts' }
+            { id: 'all', label: 'All Items', icon: '🛍️' },
+            { id: 'decor', label: 'Spiral Vases', icon: '🏺' },
+            { id: 'lighting', label: 'Ambient Lamps', icon: '💡' },
+            { id: 'sacred', label: 'Sacred Idols', icon: '🕉️' },
+            { id: 'accessories', label: 'Tech & Desk', icon: '⌨️' },
+            { id: 'gifts', label: 'Bespoke Gifts', icon: '🎁' }
           ].map(cat => (
             <button
               key={cat.id}
               onClick={() => setSelectedCategory(cat.id)}
               className={`filter-btn ${selectedCategory === cat.id ? 'active' : ''}`}
               type="button"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                gap: '6px',
+                padding: '7px 14px',
+                fontSize: '12px',
+                flexShrink: 0,
+                cursor: 'pointer'
+              }}
             >
-              {cat.label}
+              <span>{cat.icon}</span>
+              <span>{cat.label}</span>
             </button>
           ))}
         </div>
 
         {/* Search & Sort Controls */}
-        <div style={{ display: 'flex', gap: '10px', alignItems: 'center', flexWrap: 'wrap' }}>
+        <div style={{ display: 'flex', gap: '8px', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
           {/* Search Input */}
-          <div style={{ position: 'relative', width: '240px' }}>
+          <div style={{ position: 'relative', flex: 1, minWidth: '180px' }}>
             <Search size={14} style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)', color: 'var(--slate)' }} />
             <input
               type="text"
@@ -128,18 +125,18 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
               placeholder="Search products..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              style={{ width: '100%', paddingLeft: '34px', height: '38px', borderRadius: '30px', fontSize: '12px' }}
+              style={{ width: '100%', paddingLeft: '34px', height: '36px', borderRadius: '24px', fontSize: '12px' }}
             />
           </div>
 
           {/* Sort Dropdown */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '6px' }}>
-            <SlidersHorizontal size={14} color="var(--slate)" />
+          <div style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            <SlidersHorizontal size={13} color="var(--slate)" />
             <select
               className="form-input"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value as any)}
-              style={{ height: '38px', borderRadius: '8px', fontSize: '12px', padding: '0 10px' }}
+              style={{ height: '36px', borderRadius: '10px', fontSize: '11.5px', padding: '0 8px' }}
             >
               <option value="featured">Featured</option>
               <option value="price-asc">Price: Low to High</option>
@@ -148,25 +145,24 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
             </select>
           </div>
         </div>
-
       </div>
 
       {/* Added to Cart Floating Toast */}
       {addedNotice && (
-        <div style={{ position: 'fixed', bottom: '80px', right: '24px', zIndex: 600, background: '#0A0D14', color: '#FFFFFF', padding: '12px 20px', borderRadius: '10px', boxShadow: '0 12px 35px rgba(0,0,0,0.25)', display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid var(--lime)' }}>
+        <div style={{ position: 'fixed', bottom: '80px', right: '16px', left: '16px', maxWidth: '380px', margin: '0 auto', zIndex: 700, background: '#0A0D14', color: '#FFFFFF', padding: '12px 18px', borderRadius: '12px', boxShadow: '0 12px 35px rgba(0,0,0,0.3)', display: 'flex', alignItems: 'center', gap: '10px', border: '1px solid var(--lime)' }}>
           <Check size={16} color="var(--lime)" />
-          <span style={{ fontSize: '13px', fontWeight: 700 }}>Added "{addedNotice}" to Cart!</span>
+          <span style={{ fontSize: '12.5px', fontWeight: 700 }}>Added "{addedNotice}" to Cart!</span>
         </div>
       )}
 
-      {/* Products Grid */}
+      {/* Products Grid: 2-Column on Mobile, Multi-Column on Desktop */}
       <div className="catalog-grid" style={{ marginBottom: '60px' }}>
         {filteredProducts.map(product => {
           const activeColor = selectedColors[product.id] || (product.colors && product.colors[0]) || '';
           return (
-            <div key={product.id} className="product-card" style={{ display: 'flex', flexDirection: 'column' }}>
+            <div key={product.id} className="product-card mobile-compact-card" style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               
-              {/* Product Visual Photography with link to /products/[slug] */}
+              {/* Product Visual Photography */}
               <Link
                 href={`/products/${product.slug}`}
                 className="product-thumb"
@@ -177,7 +173,8 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  textDecoration: 'none'
+                  textDecoration: 'none',
+                  height: '200px'
                 }}
               >
                 {product.imageUrl ? (
@@ -197,15 +194,15 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
                   <span
                     style={{
                       position: 'absolute',
-                      top: '12px',
-                      right: '12px',
+                      top: '8px',
+                      right: '8px',
                       background: 'rgba(10, 13, 20, 0.88)',
-                      backdropFilter: 'blur(8px)',
+                      backdropFilter: 'blur(6px)',
                       color: '#FFFFFF',
-                      fontSize: '10px',
+                      fontSize: '9.5px',
                       fontWeight: 800,
-                      padding: '3px 9px',
-                      borderRadius: '20px',
+                      padding: '3px 8px',
+                      borderRadius: '12px',
                       letterSpacing: '0.04em',
                       zIndex: 2
                     }}
@@ -215,111 +212,104 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
                 )}
               </Link>
 
-              <div className="product-body" style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                {/* Title & Rating */}
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '4px' }}>
-                  <Link href={`/products/${product.slug}`} style={{ textDecoration: 'none' }}>
-                    <strong style={{ fontSize: '15px', color: 'var(--navy)', lineHeight: 1.25, display: 'block' }}>
+              {/* Product Body */}
+              <div className="product-body" style={{ flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'space-between', padding: '16px' }}>
+                <div>
+                  {/* Category & Rating */}
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '4px' }}>
+                    <span style={{ fontSize: '9.5px', textTransform: 'uppercase', color: 'var(--green-ink)', fontWeight: 800, letterSpacing: '0.04em' }}>
+                      {product.category}
+                    </span>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '2px' }}>
+                      <Star size={11} fill="#F59E0B" color="#F59E0B" />
+                      <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--navy)' }}>{product.rating || 4.9}</span>
+                    </div>
+                  </div>
+
+                  <Link href={`/products/${product.slug}`} className="product-title" style={{ textDecoration: 'none', display: 'block' }}>
+                    <strong style={{ fontSize: '14.5px', color: 'var(--navy)', lineHeight: 1.25, display: 'block' }}>
                       {product.name}
                     </strong>
                   </Link>
+
+                  {/* Desktop Only Details — Hidden on Mobile to Prevent Wall of Text */}
+                  <span className="desktop-only" style={{ fontSize: '11px', color: 'var(--slate)', margin: '4px 0 8px', display: 'block' }}>
+                    {product.material} &bull; {product.dimensions}
+                  </span>
+
+                  <p className="hide-desc-on-mobile" style={{ fontSize: '12.5px', color: 'var(--slate-dark)', margin: '0 0 14px', lineHeight: 1.45, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                    {product.description}
+                  </p>
+
+                  {/* Color Selector Pills (Desktop Only; on mobile selected on detail page) */}
+                  {product.colors && product.colors.length > 0 && (
+                    <div className="desktop-only" style={{ marginBottom: '14px' }}>
+                      <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--slate)', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
+                        Color: <strong style={{ color: 'var(--navy)' }}>{activeColor}</strong>
+                      </span>
+                      <div style={{ display: 'flex', gap: '5px', flexWrap: 'wrap' }}>
+                        {product.colors.map(col => (
+                          <button
+                            key={col}
+                            type="button"
+                            onClick={() => setSelectedColors(prev => ({ ...prev, [product.id]: col }))}
+                            style={{
+                              padding: '3px 8px',
+                              borderRadius: '4px',
+                              fontSize: '10.5px',
+                              fontWeight: 700,
+                              cursor: 'pointer',
+                              border: activeColor === col ? '1.5px solid var(--green-ink)' : '1px solid var(--line)',
+                              background: activeColor === col ? 'var(--green-subtle)' : '#FFFFFF',
+                              color: activeColor === col ? 'var(--green-ink)' : 'var(--slate-dark)'
+                            }}
+                          >
+                            {col}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </div>
 
-                <div style={{ display: 'flex', alignItems: 'center', gap: '4px', marginBottom: '8px' }}>
-                  <Star size={12} fill="#F59E0B" color="#F59E0B" />
-                  <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--navy)' }}>{product.rating || 4.9}</span>
-                  <span style={{ fontSize: '11px', color: 'var(--slate)' }}>({product.reviewsCount || 20}+ reviews)</span>
-                </div>
-
-                <span style={{ fontSize: '11px', color: 'var(--slate)', marginBottom: '8px' }}>
-                  {product.material} &bull; {product.dimensions}
-                </span>
-
-                <p style={{ fontSize: '12px', color: 'var(--slate-dark)', margin: '0 0 14px', lineHeight: 1.45, flex: 1 }}>
-                  {product.description}
-                </p>
-
-                {/* Color Selector Pills */}
-                {product.colors && product.colors.length > 0 && (
-                  <div style={{ marginBottom: '14px' }}>
-                    <span style={{ fontSize: '10px', fontWeight: 800, color: 'var(--slate)', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
-                      Variant: <strong style={{ color: 'var(--navy)' }}>{activeColor}</strong>
-                    </span>
-                    <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-                      {product.colors.map(col => (
-                        <button
-                          key={col}
-                          type="button"
-                          onClick={() => setSelectedColors(prev => ({ ...prev, [product.id]: col }))}
-                          style={{
-                            fontSize: '11px',
-                            padding: '3px 8px',
-                            borderRadius: '4px',
-                            cursor: 'pointer',
-                            border: activeColor === col ? '1.5px solid var(--green-ink)' : '1px solid var(--line)',
-                            background: activeColor === col ? 'var(--green-subtle)' : '#FFFFFF',
-                            color: activeColor === col ? 'var(--green-ink)' : 'var(--slate-dark)',
-                            fontWeight: activeColor === col ? 700 : 500
-                          }}
-                        >
-                          {col}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                )}
-
-                {/* Pricing & Actions */}
-                <div style={{ marginTop: 'auto', paddingTop: '12px', borderTop: '1px solid var(--line)' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'baseline', marginBottom: '12px' }}>
-                    <div style={{ display: 'flex', alignItems: 'baseline', gap: '8px' }}>
-                      <span style={{ fontSize: '20px', fontWeight: 900, color: 'var(--navy)' }}>₹{product.price}</span>
-                      {product.originalPrice && (
-                        <span style={{ fontSize: '13px', color: 'var(--slate-light)', textDecoration: 'line-through' }}>
-                          ₹{product.originalPrice}
-                        </span>
-                      )}
-                    </div>
-                    <span style={{ fontSize: '11px', fontWeight: 700, color: 'var(--green-ink)', background: 'var(--green-subtle)', padding: '2px 8px', borderRadius: '4px' }}>
-                      {product.leadTime}
-                    </span>
+                {/* Price & Action Button */}
+                <div style={{ marginTop: '8px' }}>
+                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '6px', marginBottom: '8px' }}>
+                    <span className="product-price" style={{ fontSize: '18px', fontWeight: 900, color: 'var(--navy)' }}>₹{product.price}</span>
+                    {product.originalPrice && (
+                      <span style={{ fontSize: '11px', color: 'var(--slate-light)', textDecoration: 'line-through' }}>
+                        ₹{product.originalPrice}
+                      </span>
+                    )}
                   </div>
 
-                  <div style={{ display: 'flex', gap: '8px', marginBottom: '8px' }}>
+                  <div style={{ display: 'flex', gap: '6px' }}>
+                    <Link
+                      href={`/products/${product.slug}`}
+                      className="btn btn-light desktop-only"
+                      style={{ flex: 1, padding: '8px', fontSize: '11.5px', textAlign: 'center', textDecoration: 'none' }}
+                    >
+                      Details
+                    </Link>
                     <button
                       type="button"
                       onClick={() => handleProductAdd(product)}
-                      className="btn btn-light"
-                      style={{ flex: 1, padding: '9px 12px', fontSize: '12px' }}
-                    >
-                      <Plus size={14} /> Add to Cart
-                    </button>
-                    <button
-                      type="button"
-                      onClick={() => handleProductBuyNow(product)}
                       className="btn btn-lime"
-                      style={{ flex: 1, padding: '9px 12px', fontSize: '12px' }}
+                      style={{
+                        flex: 1,
+                        padding: '9px 10px',
+                        fontSize: '11.5px',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        gap: '5px'
+                      }}
                     >
-                      Buy Now &rarr;
+                      <ShoppingBag size={13} />
+                      <span className="desktop-only">Add to Cart</span>
+                      <span className="mobile-only">+ Add</span>
                     </button>
                   </div>
-
-                  {/* Clearly visible Customize button */}
-                  <Link
-                    href={`/custom?product=${product.slug}&name=${encodeURIComponent(product.name)}&variant=${encodeURIComponent(activeColor)}&qty=1`}
-                    style={{
-                      display: 'block',
-                      textAlign: 'center',
-                      fontSize: '11px',
-                      color: 'var(--slate)',
-                      fontWeight: 700,
-                      padding: '4px',
-                      textDecoration: 'none'
-                    }}
-                  >
-                    Custom finish or dimensions? <span style={{ color: 'var(--green-ink)', textDecoration: 'underline' }}>Customize This Product</span>
-                  </Link>
-
                 </div>
 
               </div>
@@ -327,7 +317,6 @@ export function ShopSection({ onAddToCart, onBuyNow }: ShopSectionProps) {
           );
         })}
       </div>
-
     </section>
   );
 }

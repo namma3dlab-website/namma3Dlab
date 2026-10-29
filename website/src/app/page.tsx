@@ -4,7 +4,7 @@ import { HeroSection } from '@/components/HeroSection';
 import { FeaturedProducts } from '@/components/FeaturedProducts';
 import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { Footer } from '@/components/Footer';
-import { ShoppingBag, Sparkles, ArrowRight, Truck, ShieldCheck, Cpu, Layers } from 'lucide-react';
+import { ShoppingBag, Sparkles, ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
@@ -12,20 +12,20 @@ export default function Home() {
       {/* Hero with e-commerce spotlight cards */}
       <HeroSection />
 
-      {/* Featured Products E-Commerce Showcase */}
+      {/* Featured Products E-Commerce Showcase (2-column on mobile) */}
       <FeaturedProducts />
 
       {/* Two Clear Portals Showcase */}
       <section className="section-wrap" style={{ background: 'var(--paper)', borderBottom: '1px solid var(--line)' }}>
-        <div className="section-head" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 48px' }}>
-          <span className="eyebrow lime">Explore Namma 3D Lab</span>
-          <h2>Two Simple Ways to <em>Work With Us</em></h2>
-          <p>
+        <div className="section-head" style={{ textAlign: 'center', maxWidth: '640px', margin: '0 auto 32px' }}>
+          <span className="eyebrow lime" style={{ fontSize: '10px' }}>Explore Namma 3D Lab</span>
+          <h2 style={{ fontSize: 'clamp(20px, 3vw, 26px)', margin: '4px 0 8px' }}>Two Ways to <em>Work With Us</em></h2>
+          <p className="desktop-only" style={{ margin: 0, fontSize: '14px' }}>
             Choose between ready-to-dispatch 3D decor from our catalogue or submit a custom additive manufacturing enquiry.
           </p>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: '32px' }}>
+        <div className="portals-grid" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '24px' }}>
           
           {/* Portal 1: Pre-Printed Store */}
           <div
@@ -33,40 +33,47 @@ export default function Home() {
               background: '#FFFFFF',
               border: '1px solid var(--line)',
               borderRadius: '16px',
-              padding: '36px',
+              padding: '24px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              boxShadow: '0 10px 30px rgba(10, 13, 20, 0.04)'
+              boxShadow: '0 4px 18px rgba(10, 13, 20, 0.03)'
             }}
           >
             <div>
-              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'var(--green-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--green-ink)', marginBottom: '20px' }}>
-                <ShoppingBag size={26} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'var(--green-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--green-ink)', flexShrink: 0 }}>
+                  <ShoppingBag size={22} />
+                </div>
+                <div>
+                  <span className="eyebrow lime" style={{ margin: 0, fontSize: '9.5px' }}>Direct Store</span>
+                  <h3 style={{ margin: 0, fontSize: '18px', color: 'var(--navy)' }}>
+                    Pre-Printed Items
+                  </h3>
+                </div>
               </div>
-              <span className="eyebrow lime" style={{ margin: 0 }}>Direct E-Commerce Store</span>
-              <h3 style={{ margin: '8px 0 12px', fontSize: '24px', color: 'var(--navy)' }}>
-                Pre-Printed 3D Items
-              </h3>
-              <p style={{ color: 'var(--slate)', fontSize: '14px', lineHeight: 1.6, margin: '0 0 20px' }}>
+
+              {/* Desktop Long Description */}
+              <p className="desktop-only" style={{ color: 'var(--slate)', fontSize: '13.5px', lineHeight: 1.55, margin: '0 0 16px' }}>
                 Explore parametric spiral vases, intricate deity idols, ambient Voronoi desk lamps, and personalized executive nameplates. Carefully inspected and packaged.
               </p>
 
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
-                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '11px' }}>
-                  24–48h Dispatch
+              {/* Mobile Short Value Chips */}
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '10.5px' }}>
+                  ⚡ 24–48h Dispatch
                 </span>
-                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '11px' }}>
-                  From ₹199
+                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '10.5px' }}>
+                  🏷️ From ₹199
                 </span>
-                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '11px' }}>
-                  Free shipping over ₹499
+                <span className="badge-pill" style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', fontSize: '10.5px' }}>
+                  📦 Free over ₹499
                 </span>
               </div>
             </div>
 
-            <Link href="/shop" className="btn btn-lime" style={{ width: '100%', padding: '14px', fontSize: '14px' }}>
-              Shop Full Catalogue <ArrowRight size={16} />
+            <Link href="/shop" className="btn btn-lime" style={{ width: '100%', padding: '12px', fontSize: '13px' }}>
+              Shop Full Catalogue <ArrowRight size={15} />
             </Link>
           </div>
 
@@ -77,40 +84,47 @@ export default function Home() {
               color: '#FFFFFF',
               border: '1px solid var(--navy-border)',
               borderRadius: '16px',
-              padding: '36px',
+              padding: '24px',
               display: 'flex',
               flexDirection: 'column',
               justifyContent: 'space-between',
-              boxShadow: '0 20px 50px rgba(10, 13, 20, 0.15)'
+              boxShadow: '0 12px 35px rgba(10, 13, 20, 0.12)'
             }}
           >
             <div>
-              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(141, 198, 63, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--lime)', marginBottom: '20px' }}>
-                <Sparkles size={26} />
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '14px' }}>
+                <div style={{ width: '42px', height: '42px', borderRadius: '10px', background: 'rgba(141, 198, 63, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--lime)', flexShrink: 0 }}>
+                  <Sparkles size={22} />
+                </div>
+                <div>
+                  <span className="eyebrow lime" style={{ margin: 0, fontSize: '9.5px' }}>Bespoke Additive</span>
+                  <h3 style={{ margin: 0, fontSize: '18px', color: '#FFFFFF' }}>
+                    Custom Enquiries
+                  </h3>
+                </div>
               </div>
-              <span className="eyebrow lime" style={{ margin: 0 }}>Custom Solutions</span>
-              <h3 style={{ margin: '8px 0 12px', fontSize: '24px', color: '#FFFFFF' }}>
-                Bespoke Custom Enquiries
-              </h3>
-              <p style={{ color: 'var(--slate-light)', fontSize: '14px', lineHeight: 1.6, margin: '0 0 20px' }}>
+
+              {/* Desktop Long Description */}
+              <p className="desktop-only" style={{ color: 'var(--slate-light)', fontSize: '13.5px', lineHeight: 1.55, margin: '0 0 16px' }}>
                 Need a product in custom dimensions, corporate branding, or a custom 3D model printed? Submit your requirements; our team logs it to Google Sheets and connects with you on WhatsApp.
               </p>
 
-              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
-                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '11px' }}>
-                  &plusmn;0.10mm Precision
+              {/* Mobile Short Value Chips */}
+              <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '20px' }}>
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '10.5px' }}>
+                  🎯 &plusmn;0.10mm Micron
                 </span>
-                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '11px' }}>
-                  Google Sheets Logged
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '10.5px' }}>
+                  📊 Sheets Synced
                 </span>
-                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: 'var(--lime)', fontSize: '11px' }}>
-                  Instant WhatsApp Connect
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: 'var(--lime)', fontSize: '10.5px' }}>
+                  💬 WhatsApp Handshake
                 </span>
               </div>
             </div>
 
-            <Link href="/custom" className="btn btn-lime" style={{ width: '100%', padding: '14px', fontSize: '14px' }}>
-              Start Custom Enquiry <ArrowRight size={16} />
+            <Link href="/custom" className="btn btn-lime" style={{ width: '100%', padding: '12px', fontSize: '13px' }}>
+              Start Custom Enquiry <ArrowRight size={15} />
             </Link>
           </div>
 
@@ -125,4 +139,3 @@ export default function Home() {
     </main>
   );
 }
-

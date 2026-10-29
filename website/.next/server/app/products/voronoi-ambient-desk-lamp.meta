@@ -1,0 +1,41 @@
+{
+  "status": 200,
+  "headers": {
+    "link": "</_next/static/media/83afe278b6a6bb3c-s.p.2bn3s6zvc0dyp.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/fba5a26ea33df6a3-s.p.18rizl4rsrl42.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </images/products/voronoi_ambient_lamp.jpg>; rel=preload; as=\"image\", </images/products/spiral_fluted_vase.jpg>; rel=preload; as=\"image\", </images/products/cultural_deity_idol.jpg>; rel=preload; as=\"image\", </images/products/bespoke_keychains.jpg>; rel=preload; as=\"image\"",
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/products/layout,_N_T_/products/[slug]/layout,_N_T_/products/[slug]/page,_N_T_/products/voronoi-ambient-desk-lamp"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/products/$d$slug/__PAGE__"
+  ],
+  "prefetchHints": {
+    "hints": 49216,
+    "slots": {
+      "children": {
+        "hints": 49248,
+        "slots": {
+          "children": {
+            "hints": 49248,
+            "slots": {
+              "children": {
+                "hints": 49312,
+                "slots": null
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "routeCache": {
+    "key": "/route-cache/APP_PAGE/679a838ce30f4d37339f0b2d8ec1b5893c3d5e46a3a706bd4c19d34cba7b565a/$/products/voronoi-ambient-desk-lamp",
+    "owner": {
+      "kind": "APP_PAGE",
+      "sourceRoute": "/products/[slug]/page"
+    },
+    "isFallback": false
+  }
+}
