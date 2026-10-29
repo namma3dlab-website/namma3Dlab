@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import { Plus_Jakarta_Sans, Inter } from 'next/font/google';
 import './globals.css';
 import { AdminDataProvider } from '@/context/AdminDataContext';
-import { AdminSidebar } from '@/components/AdminSidebar';
-import { AdminHeader } from '@/components/AdminHeader';
+import { AdminShell } from '@/components/AdminShell';
 
 const plusJakarta = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -33,18 +32,9 @@ export default function RootLayout({
     <html lang="en" className={`${plusJakarta.variable} ${inter.variable}`}>
       <body>
         <AdminDataProvider>
-          <div style={{ display: 'flex', minHeight: '100vh' }}>
-            {/* Left Nav Sidebar */}
-            <AdminSidebar />
-
-            {/* Main Application Area */}
-            <div style={{ flex: 1, display: 'flex', flexDirection: 'column', minWidth: 0, marginLeft: '260px' }}>
-              <AdminHeader />
-              <main style={{ flex: 1, padding: '32px 36px 60px' }}>
-                {children}
-              </main>
-            </div>
-          </div>
+          <AdminShell>
+            {children}
+          </AdminShell>
         </AdminDataProvider>
       </body>
     </html>

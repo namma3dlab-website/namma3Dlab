@@ -38,7 +38,7 @@ export function PaymentSettingsPage() {
       )}
 
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
         <div>
           <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--green-ink)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
             Finance &bull; Gateway Integrations
@@ -64,7 +64,7 @@ export function PaymentSettingsPage() {
       <form onSubmit={handleSave} style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
         
         {/* Row 1: Razorpay & Cashfree */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+        <div className="admin-payments-grid">
           
           {/* Razorpay Card */}
           <div style={{ background: '#FFFFFF', border: '1px solid var(--line)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--shadow-card)' }}>
@@ -207,7 +207,7 @@ export function PaymentSettingsPage() {
         </div>
 
         {/* Row 2: Cash on Delivery & Taxation */}
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '24px' }}>
+        <div className="admin-payments-grid">
           
           {/* Taxation & GST */}
           <div style={{ background: '#FFFFFF', border: '1px solid var(--line)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--shadow-card)' }}>

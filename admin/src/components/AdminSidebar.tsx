@@ -14,11 +14,17 @@ import {
   Layers,
   Sparkles,
   CheckCircle2,
-  Activity
+  Activity,
+  X
 } from 'lucide-react';
 import { useAdminData } from '@/context/AdminDataContext';
 
-export function AdminSidebar() {
+interface AdminSidebarProps {
+  isOpen?: boolean;
+  onClose?: () => void;
+}
+
+export function AdminSidebar({ isOpen, onClose }: AdminSidebarProps) {
   const pathname = usePathname();
   const { orders, enquiries, printers } = useAdminData();
 
@@ -66,23 +72,10 @@ export function AdminSidebar() {
   ];
 
   return (
-    <aside
-      style={{
-        width: '260px',
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        background: 'var(--admin-sidebar-bg)',
-        borderRight: '1px solid #1E293B',
-        display: 'flex',
-        flexDirection: 'column',
-        zIndex: 50
-      }}
-    >
+    <aside className={`admin-sidebar ${isOpen ? 'sidebar-open' : ''}`}>
       {/* Brand Header */}
-      <div style={{ padding: '24px 20px', borderBottom: '1px solid #1E293B' }}>
-        <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+      <div style={{ padding: '24px 20px', borderBottom: '1px solid #1E293B', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <Link href="/" onClick={onClose} style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           <div
             style={{
               width: '36px',
@@ -107,6 +100,29 @@ export function AdminSidebar() {
             </span>
           </div>
         </Link>
+
+        {/* Mobile Close Button */}
+        {onClose && (
+          <button
+            type="button"
+            onClick={onClose}
+            className="mobile-only-btn"
+            aria-label="Close Sidebar"
+            style={{
+              background: 'rgba(255, 255, 255, 0.08)',
+              border: 'none',
+              borderRadius: '8px',
+              color: '#94A3B8',
+              padding: '6px',
+              cursor: 'pointer',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}
+          >
+            <X size={18} />
+          </button>
+        )}
       </div>
 
       {/* Navigation Menu */}
@@ -121,6 +137,7 @@ export function AdminSidebar() {
             <Link
               key={link.href}
               href={link.href}
+              onClick={onClose}
               style={{
                 display: 'flex',
                 alignItems: 'center',

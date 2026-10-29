@@ -36,7 +36,7 @@ export default function AdminDashboardPage() {
     <div>
       
       {/* Page Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
         <div>
           <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--green-ink)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
             Mission Control &bull; Live Telemetry
@@ -49,7 +49,7 @@ export default function AdminDashboardPage() {
           </p>
         </div>
 
-        <div style={{ display: 'flex', gap: '10px' }}>
+        <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
           <button
             type="button"
             onClick={() => setIsAddProductOpen(true)}
@@ -64,7 +64,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* KPI Cards Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '20px', marginBottom: '32px' }}>
+      <div className="admin-kpi-grid">
         
         {/* Card 1: Revenue */}
         <div style={{ background: '#FFFFFF', border: '1px solid var(--line)', borderRadius: '16px', padding: '22px', boxShadow: 'var(--shadow-card)' }}>
@@ -141,7 +141,7 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Main Grid: Orders & Print Fleet */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '24px', marginBottom: '32px' }}>
+      <div className="admin-split-grid">
         
         {/* Recent Store Orders Section */}
         <div style={{ background: '#FFFFFF', border: '1px solid var(--line)', borderRadius: '16px', padding: '24px', boxShadow: 'var(--shadow-card)' }}>

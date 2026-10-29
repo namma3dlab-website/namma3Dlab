@@ -168,6 +168,21 @@ h1, h2, h3, h4 {
   .pos-mobile-layout {
     display: flex !important;
   }
+  .pos-catalog-col {
+    display: none !important;
+    flex: 1 1 100% !important;
+  }
+  .pos-catalog-col.active-mobile-col {
+    display: flex !important;
+  }
+  .pos-bill-col {
+    display: none !important;
+    flex: 1 1 100% !important;
+    min-width: 100% !important;
+  }
+  .pos-bill-col.active-mobile-col {
+    display: flex !important;
+  }
   .pos-modal-overlay {
     align-items: flex-end;
     padding: 0;
@@ -185,6 +200,12 @@ h1, h2, h3, h4 {
   }
   .pos-mobile-layout {
     display: none !important;
+  }
+  .pos-catalog-col {
+    display: flex !important;
+  }
+  .pos-bill-col {
+    display: flex !important;
   }
 }
 

@@ -1,12 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Search, Plus, Bell, ShieldCheck, Printer, CheckCircle } from 'lucide-react';
+import { Search, Plus, Bell, ShieldCheck, Menu } from 'lucide-react';
 import { useAdminData } from '@/context/AdminDataContext';
 import { AddProductModal } from './AddProductModal';
 
-export function AdminHeader() {
-  const { orders, enquiries, printers } = useAdminData();
+interface AdminHeaderProps {
+  onToggleSidebar?: () => void;
+}
+
+export function AdminHeader({ onToggleSidebar }: AdminHeaderProps) {
+  const { orders, enquiries } = useAdminData();
   const [isAddProductOpen, setIsAddProductOpen] = useState(false);
 
   const pendingOrders = orders.filter(o => o.orderStatus === 'Pending' || o.orderStatus === 'Slicing').length;
@@ -15,55 +19,67 @@ export function AdminHeader() {
 
   return (
     <>
-      <header
-        style={{
-          height: '70px',
-          background: '#FFFFFF',
-          borderBottom: '1px solid var(--line)',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'space-between',
-          padding: '0 36px',
-          position: 'sticky',
-          top: 0,
-          zIndex: 40
-        }}
-      >
-        {/* Left: Quick Search */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', flex: 1, maxWidth: '440px' }}>
+      <header className="admin-header">
+        {/* Left: Mobile Menu Toggle + Quick Search */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px', flex: 1, maxWidth: '480px' }}>
+          {onToggleSidebar && (
+            <button
+              type="button"
+              onClick={onToggleSidebar}
+              className="admin-hamburger-btn"
+              aria-label="Open navigation menu"
+              style={{
+                background: 'var(--surface-alt)',
+                border: '1px solid var(--line)',
+                borderRadius: '8px',
+                color: 'var(--navy)',
+                padding: '8px',
+                cursor: 'pointer',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0
+              }}
+            >
+              <Menu size={18} />
+            </button>
+          )}
+
           <div style={{ position: 'relative', width: '100%' }}>
             <Search
-              size={16}
+              size={15}
               color="var(--slate-light)"
-              style={{ position: 'absolute', left: '14px', top: '50%', transform: 'translateY(-50%)' }}
+              style={{ position: 'absolute', left: '12px', top: '50%', transform: 'translateY(-50%)' }}
             />
             <input
               type="text"
-              placeholder="Search products, orders #, customer phone, or STL files..."
+              placeholder="Search products, orders, STL files..."
               className="form-input"
-              style={{ width: '100%', paddingLeft: '38px', fontSize: '13px', borderRadius: '10px' }}
+              style={{ width: '100%', paddingLeft: '36px', fontSize: '13px', borderRadius: '10px', height: '38px' }}
             />
           </div>
         </div>
 
         {/* Right: Actions & Admin Profile */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
           
           {/* Quick Add Product Button */}
           <button
             type="button"
             onClick={() => setIsAddProductOpen(true)}
             className="btn btn-lime"
-            style={{ fontSize: '12.5px', padding: '9px 16px' }}
+            style={{ fontSize: '12.5px', padding: '8px 14px', whiteSpace: 'nowrap' }}
           >
-            <Plus size={16} /> Add New Product
+            <Plus size={15} />
+            <span className="hide-on-mobile">Add New Product</span>
+            <span className="show-on-mobile-inline">Add</span>
           </button>
 
           {/* Notifications Indicator */}
           <div
             style={{
-              width: '38px',
-              height: '38px',
+              width: '36px',
+              height: '36px',
               borderRadius: '10px',
               border: '1px solid var(--line)',
               display: 'flex',
@@ -71,19 +87,20 @@ export function AdminHeader() {
               justifyContent: 'center',
               color: 'var(--slate-dark)',
               position: 'relative',
-              cursor: 'pointer'
+              cursor: 'pointer',
+              flexShrink: 0
             }}
             title={`${totalAlerts} pending tasks`}
           >
-            <Bell size={18} />
+            <Bell size={17} />
             {totalAlerts > 0 && (
               <span
                 style={{
                   position: 'absolute',
-                  top: '7px',
-                  right: '7px',
-                  width: '8px',
-                  height: '8px',
+                  top: '6px',
+                  right: '6px',
+                  width: '7px',
+                  height: '7px',
                   borderRadius: '50%',
                   background: '#EF4444',
                   boxShadow: '0 0 6px #EF4444'
@@ -93,29 +110,30 @@ export function AdminHeader() {
           </div>
 
           {/* Profile Badge */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '10px', paddingLeft: '8px', borderLeft: '1px solid var(--line)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px', paddingLeft: '6px', borderLeft: '1px solid var(--line)' }}>
             <div
               style={{
-                width: '36px',
-                height: '36px',
+                width: '34px',
+                height: '34px',
                 borderRadius: '50%',
                 background: 'var(--navy)',
                 color: 'var(--lime)',
                 fontWeight: 800,
-                fontSize: '13px',
+                fontSize: '12px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center'
+                justifyContent: 'center',
+                flexShrink: 0
               }}
             >
               AK
             </div>
-            <div>
-              <strong style={{ fontSize: '13px', color: 'var(--navy)', display: 'block', lineHeight: 1.2 }}>
+            <div className="hide-on-mobile">
+              <strong style={{ fontSize: '12.5px', color: 'var(--navy)', display: 'block', lineHeight: 1.2 }}>
                 Akshay Kumar
               </strong>
-              <span style={{ fontSize: '11px', color: 'var(--slate)', display: 'flex', alignItems: 'center', gap: '4px' }}>
-                <ShieldCheck size={12} color="var(--green-ink)" /> Super Admin
+              <span style={{ fontSize: '10px', color: 'var(--slate)', display: 'flex', alignItems: 'center', gap: '3px' }}>
+                <ShieldCheck size={11} color="var(--green-ink)" /> Admin
               </span>
             </div>
           </div>

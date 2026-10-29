@@ -54,6 +54,7 @@ export default function POSTerminalPage() {
   const [isSummaryOpen, setIsSummaryOpen] = useState(false);
   const [isEditingVenue, setIsEditingVenue] = useState(false);
   const [venueInput, setVenueInput] = useState(shift.stallName);
+  const [mobileTab, setMobileTab] = useState<'catalog' | 'bill'>('catalog');
 
   const filteredProducts = products.filter(p => {
     const matchesCat = selectedCat === 'all' || p.category === selectedCat;
@@ -159,11 +160,70 @@ export default function POSTerminalPage() {
         </div>
       </header>
 
-      {/* Main Terminal Workspace (Split: Catalog Left, Active Bill Right) */}
+      {/* Mobile Tab Switcher (Visible on mobile/tablet <= 880px) */}
+      <div
+        className="pos-mobile-layout"
+        style={{
+          background: '#0F172A',
+          padding: '8px 12px',
+          borderBottom: '1px solid #1E293B',
+          gap: '8px'
+        }}
+      >
+        <button
+          type="button"
+          onClick={() => setMobileTab('catalog')}
+          style={{
+            flex: 1,
+            padding: '9px 12px',
+            borderRadius: '8px',
+            border: 'none',
+            fontSize: '13px',
+            fontWeight: 800,
+            cursor: 'pointer',
+            background: mobileTab === 'catalog' ? 'var(--lime)' : 'rgba(255, 255, 255, 0.08)',
+            color: mobileTab === 'catalog' ? '#0A0D14' : '#94A3B8',
+            transition: 'all 0.15s ease'
+          }}
+        >
+          🛍️ Catalog ({products.length})
+        </button>
+        <button
+          type="button"
+          onClick={() => setMobileTab('bill')}
+          style={{
+            flex: 1,
+            padding: '9px 12px',
+            borderRadius: '8px',
+            border: 'none',
+            fontSize: '13px',
+            fontWeight: 800,
+            cursor: 'pointer',
+            background: mobileTab === 'bill' ? 'var(--lime)' : 'rgba(255, 255, 255, 0.08)',
+            color: mobileTab === 'bill' ? '#0A0D14' : '#94A3B8',
+            transition: 'all 0.15s ease'
+          }}
+        >
+          🧾 Bill ({totalItemsCount}) &bull; ₹{subtotal}
+        </button>
+      </div>
+
+      {/* Main Terminal Workspace (Split on Desktop, Tabbed on Mobile) */}
       <div style={{ display: 'flex', flex: 1, minHeight: 0 }}>
         
         {/* Left Column: Product Selection Grid */}
-        <div style={{ flex: '1 1 65%', display: 'flex', flexDirection: 'column', borderRight: '1px solid var(--line)', background: '#F8FAFC', minWidth: 0 }}>
+        <div
+          className={`pos-catalog-col ${mobileTab === 'catalog' ? 'active-mobile-col' : ''}`}
+          style={{
+            flex: '1 1 65%',
+            display: 'flex',
+            flexDirection: 'column',
+            borderRight: '1px solid var(--line)',
+            background: '#F8FAFC',
+            minWidth: 0,
+            position: 'relative'
+          }}
+        >
           
           {/* Category Filter Pills & Search */}
           <div style={{ padding: '12px 18px', background: '#FFFFFF', borderBottom: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', gap: '12px', flexWrap: 'wrap' }}>
@@ -319,20 +379,48 @@ export default function POSTerminalPage() {
             </button>
           </form>
 
+          {/* Mobile Floating Action Button to Review Bill */}
+          {cart.length > 0 && (
+            <div className="pos-mobile-layout" style={{ padding: '10px 16px', background: '#FFFFFF', borderTop: '1px solid var(--line)' }}>
+              <button
+                type="button"
+                onClick={() => setMobileTab('bill')}
+                className="btn btn-lime"
+                style={{ width: '100%', padding: '13px 18px', fontSize: '15px', fontWeight: 800, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+              >
+                <span>🛒 {totalItemsCount} items</span>
+                <span>Review Bill &bull; ₹{subtotal} &rarr;</span>
+              </button>
+            </div>
+          )}
+
         </div>
 
         {/* Right Column: Active Bill & Payment Trays */}
-        <div style={{ flex: '0 0 35%', display: 'flex', flexDirection: 'column', background: '#FFFFFF', minWidth: '320px' }}>
+        <div
+          className={`pos-bill-col ${mobileTab === 'bill' ? 'active-mobile-col' : ''}`}
+          style={{ flex: '0 0 35%', display: 'flex', flexDirection: 'column', background: '#FFFFFF', minWidth: '320px' }}
+        >
           
           {/* Bill Header */}
           <div style={{ padding: '16px 20px', borderBottom: '1px solid var(--line)', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <div>
-              <strong style={{ fontSize: '15px', color: 'var(--navy)', display: 'block' }}>
-                Active Bill ({totalItemsCount} items)
-              </strong>
-              <span style={{ fontSize: '11px', color: 'var(--slate)' }}>
-                Order #{String(transactions.length + 1).padStart(3, '0')}
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+              <button
+                type="button"
+                onClick={() => setMobileTab('catalog')}
+                className="btn btn-light btn-sm pos-mobile-layout"
+                style={{ padding: '4px 8px', fontSize: '11px' }}
+              >
+                &larr; Items
+              </button>
+              <div>
+                <strong style={{ fontSize: '15px', color: 'var(--navy)', display: 'block' }}>
+                  Active Bill ({totalItemsCount} items)
+                </strong>
+                <span style={{ fontSize: '11px', color: 'var(--slate)' }}>
+                  Order #{String(transactions.length + 1).padStart(3, '0')}
+                </span>
+              </div>
             </div>
 
             {cart.length > 0 && (

@@ -297,7 +297,7 @@ I would like to discuss my requirements and finalize quotation details!`;
             1. Your Contact Details
           </h3>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+          <div className="responsive-form-grid-2">
             <div className="form-group">
               <label className="form-label" style={{ fontSize: '12px', fontWeight: 700 }}>
                 Full Name *
@@ -348,7 +348,7 @@ I would like to discuss my requirements and finalize quotation details!`;
             2. Product &amp; Customization Specifications
           </h3>
 
-          <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '16px', marginBottom: '16px' }}>
+          <div className="responsive-form-grid-2-1">
             <div className="form-group">
               <label className="form-label" style={{ fontSize: '12px', fontWeight: 700 }}>
                 Product Name or Description

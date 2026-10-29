@@ -107,7 +107,7 @@ export function ProductDetailClient({ product, relatedProducts }: ProductDetailC
       )}
 
       {/* Main Product Layout Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1.1fr', gap: '48px', alignItems: 'flex-start', marginBottom: '60px' }}>
+      <div className="pdp-main-grid">
         
         {/* Left Column: Product Visual Showcase */}
         <div>

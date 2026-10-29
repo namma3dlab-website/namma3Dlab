@@ -48,6 +48,7 @@ function POSTerminalPage() {
     const [isSummaryOpen, setIsSummaryOpen] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [isEditingVenue, setIsEditingVenue] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(false);
     const [venueInput, setVenueInput] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])(shift.stallName);
+    const [mobileTab, setMobileTab] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$index$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["useState"])('catalog');
     const filteredProducts = products.filter((p)=>{
         const matchesCat = selectedCat === 'all' || p.category === selectedCat;
         const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -119,12 +120,12 @@ function POSTerminalPage() {
                                     strokeWidth: 2.5
                                 }, void 0, false, {
                                     fileName: "[project]/pos/src/app/page.tsx",
-                                    lineNumber: 108,
+                                    lineNumber: 109,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 107,
+                                lineNumber: 108,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -144,7 +145,7 @@ function POSTerminalPage() {
                                                 children: "Namma 3D Lab"
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 112,
+                                                lineNumber: 113,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -159,13 +160,13 @@ function POSTerminalPage() {
                                                 children: "STALL POS"
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 113,
+                                                lineNumber: 114,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 111,
+                                        lineNumber: 112,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -182,7 +183,7 @@ function POSTerminalPage() {
                                                 color: "var(--lime)"
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 119,
+                                                lineNumber: 120,
                                                 columnNumber: 15
                                             }, this),
                                             isEditingVenue ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -205,7 +206,7 @@ function POSTerminalPage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 122,
+                                                        lineNumber: 123,
                                                         columnNumber: 19
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -219,13 +220,13 @@ function POSTerminalPage() {
                                                         children: "Save"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 129,
+                                                        lineNumber: 130,
                                                         columnNumber: 19
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 121,
+                                                lineNumber: 122,
                                                 columnNumber: 17
                                             }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                                 onClick: ()=>setIsEditingVenue(true),
@@ -236,25 +237,25 @@ function POSTerminalPage() {
                                                 children: shift.stallName
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 134,
+                                                lineNumber: 135,
                                                 columnNumber: 17
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 118,
+                                        lineNumber: 119,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 110,
+                                lineNumber: 111,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pos/src/app/page.tsx",
-                        lineNumber: 106,
+                        lineNumber: 107,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -281,7 +282,7 @@ function POSTerminalPage() {
                                         children: "Shift Sales"
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 145,
+                                        lineNumber: 146,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -299,13 +300,13 @@ function POSTerminalPage() {
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 146,
+                                        lineNumber: 147,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 144,
+                                lineNumber: 145,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -324,26 +325,92 @@ function POSTerminalPage() {
                                         color: "var(--lime)"
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 157,
+                                        lineNumber: 158,
                                         columnNumber: 13
                                     }, this),
                                     " Day Settlement"
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 151,
+                                lineNumber: 152,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pos/src/app/page.tsx",
-                        lineNumber: 143,
+                        lineNumber: 144,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 93,
+                lineNumber: 94,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "pos-mobile-layout",
+                style: {
+                    background: '#0F172A',
+                    padding: '8px 12px',
+                    borderBottom: '1px solid #1E293B',
+                    gap: '8px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: ()=>setMobileTab('catalog'),
+                        style: {
+                            flex: 1,
+                            padding: '9px 12px',
+                            borderRadius: '8px',
+                            border: 'none',
+                            fontSize: '13px',
+                            fontWeight: 800,
+                            cursor: 'pointer',
+                            background: mobileTab === 'catalog' ? 'var(--lime)' : 'rgba(255, 255, 255, 0.08)',
+                            color: mobileTab === 'catalog' ? '#0A0D14' : '#94A3B8',
+                            transition: 'all 0.15s ease'
+                        },
+                        children: [
+                            "🛍️ Catalog (",
+                            products.length,
+                            ")"
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/pos/src/app/page.tsx",
+                        lineNumber: 173,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        type: "button",
+                        onClick: ()=>setMobileTab('bill'),
+                        style: {
+                            flex: 1,
+                            padding: '9px 12px',
+                            borderRadius: '8px',
+                            border: 'none',
+                            fontSize: '13px',
+                            fontWeight: 800,
+                            cursor: 'pointer',
+                            background: mobileTab === 'bill' ? 'var(--lime)' : 'rgba(255, 255, 255, 0.08)',
+                            color: mobileTab === 'bill' ? '#0A0D14' : '#94A3B8',
+                            transition: 'all 0.15s ease'
+                        },
+                        children: [
+                            "🧾 Bill (",
+                            totalItemsCount,
+                            ") • ₹",
+                            subtotal
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/pos/src/app/page.tsx",
+                        lineNumber: 191,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/pos/src/app/page.tsx",
+                lineNumber: 164,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -354,13 +421,15 @@ function POSTerminalPage() {
                 },
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `pos-catalog-col ${mobileTab === 'catalog' ? 'active-mobile-col' : ''}`,
                         style: {
                             flex: '1 1 65%',
                             display: 'flex',
                             flexDirection: 'column',
                             borderRight: '1px solid var(--line)',
                             background: '#F8FAFC',
-                            minWidth: 0
+                            minWidth: 0,
+                            position: 'relative'
                         },
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -419,12 +488,12 @@ function POSTerminalPage() {
                                                 children: cat.label
                                             }, cat.id, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 178,
+                                                lineNumber: 238,
                                                 columnNumber: 17
                                             }, this))
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 170,
+                                        lineNumber: 230,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -444,7 +513,7 @@ function POSTerminalPage() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 199,
+                                                lineNumber: 259,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -461,19 +530,19 @@ function POSTerminalPage() {
                                                 }
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 200,
+                                                lineNumber: 260,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 198,
+                                        lineNumber: 258,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 169,
+                                lineNumber: 229,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -528,7 +597,7 @@ function POSTerminalPage() {
                                                     children: inCart.qty
                                                 }, void 0, false, {
                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                    lineNumber: 237,
+                                                    lineNumber: 297,
                                                     columnNumber: 23
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -550,7 +619,7 @@ function POSTerminalPage() {
                                                         }
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 261,
+                                                        lineNumber: 321,
                                                         columnNumber: 25
                                                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                         style: {
@@ -566,17 +635,17 @@ function POSTerminalPage() {
                                                             size: 20
                                                         }, void 0, false, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 264,
+                                                            lineNumber: 324,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 263,
+                                                        lineNumber: 323,
                                                         columnNumber: 25
                                                     }, this)
                                                 }, void 0, false, {
                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                    lineNumber: 259,
+                                                    lineNumber: 319,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -592,7 +661,7 @@ function POSTerminalPage() {
                                                             children: product.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 270,
+                                                            lineNumber: 330,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -613,7 +682,7 @@ function POSTerminalPage() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                                    lineNumber: 274,
+                                                                    lineNumber: 334,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -628,36 +697,36 @@ function POSTerminalPage() {
                                                                     ]
                                                                 }, void 0, true, {
                                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                                    lineNumber: 275,
+                                                                    lineNumber: 335,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 273,
+                                                            lineNumber: 333,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                    lineNumber: 269,
+                                                    lineNumber: 329,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, product.id, true, {
                                             fileName: "[project]/pos/src/app/page.tsx",
-                                            lineNumber: 217,
+                                            lineNumber: 277,
                                             columnNumber: 19
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "[project]/pos/src/app/page.tsx",
-                                    lineNumber: 213,
+                                    lineNumber: 273,
                                     columnNumber: 13
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 212,
+                                lineNumber: 272,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -682,7 +751,7 @@ function POSTerminalPage() {
                                         children: "Custom / MISC:"
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 298,
+                                        lineNumber: 358,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -698,7 +767,7 @@ function POSTerminalPage() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 301,
+                                        lineNumber: 361,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -715,7 +784,7 @@ function POSTerminalPage() {
                                         }
                                     }, void 0, false, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 309,
+                                        lineNumber: 369,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -729,29 +798,84 @@ function POSTerminalPage() {
                                                 size: 14
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 318,
+                                                lineNumber: 378,
                                                 columnNumber: 15
                                             }, this),
                                             " Add"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 317,
+                                        lineNumber: 377,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 287,
+                                lineNumber: 347,
                                 columnNumber: 11
+                            }, this),
+                            cart.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "pos-mobile-layout",
+                                style: {
+                                    padding: '10px 16px',
+                                    background: '#FFFFFF',
+                                    borderTop: '1px solid var(--line)'
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    type: "button",
+                                    onClick: ()=>setMobileTab('bill'),
+                                    className: "btn btn-lime",
+                                    style: {
+                                        width: '100%',
+                                        padding: '13px 18px',
+                                        fontSize: '15px',
+                                        fontWeight: 800,
+                                        display: 'flex',
+                                        justifyContent: 'space-between',
+                                        alignItems: 'center'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: [
+                                                "🛒 ",
+                                                totalItemsCount,
+                                                " items"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/pos/src/app/page.tsx",
+                                            lineNumber: 391,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            children: [
+                                                "Review Bill • ₹",
+                                                subtotal,
+                                                " →"
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/pos/src/app/page.tsx",
+                                            lineNumber: 392,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/pos/src/app/page.tsx",
+                                    lineNumber: 385,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/pos/src/app/page.tsx",
+                                lineNumber: 384,
+                                columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pos/src/app/page.tsx",
-                        lineNumber: 166,
+                        lineNumber: 215,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: `pos-bill-col ${mobileTab === 'bill' ? 'active-mobile-col' : ''}`,
                         style: {
                             flex: '0 0 35%',
                             display: 'flex',
@@ -770,41 +894,68 @@ function POSTerminalPage() {
                                 },
                                 children: [
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            gap: '10px'
+                                        },
                                         children: [
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                type: "button",
+                                                onClick: ()=>setMobileTab('catalog'),
+                                                className: "btn btn-light btn-sm pos-mobile-layout",
                                                 style: {
-                                                    fontSize: '15px',
-                                                    color: 'var(--navy)',
-                                                    display: 'block'
+                                                    padding: '4px 8px',
+                                                    fontSize: '11px'
                                                 },
-                                                children: [
-                                                    "Active Bill (",
-                                                    totalItemsCount,
-                                                    " items)"
-                                                ]
-                                            }, void 0, true, {
+                                                children: "← Items"
+                                            }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 330,
+                                                lineNumber: 408,
                                                 columnNumber: 15
                                             }, this),
-                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                style: {
-                                                    fontSize: '11px',
-                                                    color: 'var(--slate)'
-                                                },
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                                 children: [
-                                                    "Order #",
-                                                    String(transactions.length + 1).padStart(3, '0')
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                                        style: {
+                                                            fontSize: '15px',
+                                                            color: 'var(--navy)',
+                                                            display: 'block'
+                                                        },
+                                                        children: [
+                                                            "Active Bill (",
+                                                            totalItemsCount,
+                                                            " items)"
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/pos/src/app/page.tsx",
+                                                        lineNumber: 417,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        style: {
+                                                            fontSize: '11px',
+                                                            color: 'var(--slate)'
+                                                        },
+                                                        children: [
+                                                            "Order #",
+                                                            String(transactions.length + 1).padStart(3, '0')
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/pos/src/app/page.tsx",
+                                                        lineNumber: 420,
+                                                        columnNumber: 17
+                                                    }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 333,
+                                                lineNumber: 416,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 329,
+                                        lineNumber: 407,
                                         columnNumber: 13
                                     }, this),
                                     cart.length > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -826,20 +977,20 @@ function POSTerminalPage() {
                                                 size: 13
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 344,
+                                                lineNumber: 432,
                                                 columnNumber: 17
                                             }, this),
                                             " Clear"
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 339,
+                                        lineNumber: 427,
                                         columnNumber: 15
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 328,
+                                lineNumber: 406,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -868,7 +1019,7 @@ function POSTerminalPage() {
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/pos/src/app/page.tsx",
-                                            lineNumber: 353,
+                                            lineNumber: 441,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -879,7 +1030,7 @@ function POSTerminalPage() {
                                             children: "Cart is Empty"
                                         }, void 0, false, {
                                             fileName: "[project]/pos/src/app/page.tsx",
-                                            lineNumber: 354,
+                                            lineNumber: 442,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -891,13 +1042,13 @@ function POSTerminalPage() {
                                             children: "Tap any 3D printed product on the left to add it to this bill."
                                         }, void 0, false, {
                                             fileName: "[project]/pos/src/app/page.tsx",
-                                            lineNumber: 355,
+                                            lineNumber: 443,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/pos/src/app/page.tsx",
-                                    lineNumber: 352,
+                                    lineNumber: 440,
                                     columnNumber: 15
                                 }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
@@ -930,7 +1081,7 @@ function POSTerminalPage() {
                                                             children: item.name
                                                         }, void 0, false, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 373,
+                                                            lineNumber: 461,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -945,13 +1096,13 @@ function POSTerminalPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 376,
+                                                            lineNumber: 464,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                    lineNumber: 372,
+                                                    lineNumber: 460,
                                                     columnNumber: 21
                                                 }, this),
                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -988,12 +1139,12 @@ function POSTerminalPage() {
                                                                         size: 12
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                                        lineNumber: 389,
+                                                                        lineNumber: 477,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                                    lineNumber: 384,
+                                                                    lineNumber: 472,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -1006,7 +1157,7 @@ function POSTerminalPage() {
                                                                     children: item.qty
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                                    lineNumber: 391,
+                                                                    lineNumber: 479,
                                                                     columnNumber: 25
                                                                 }, this),
                                                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1027,18 +1178,18 @@ function POSTerminalPage() {
                                                                         size: 12
                                                                     }, void 0, false, {
                                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                                        lineNumber: 399,
+                                                                        lineNumber: 487,
                                                                         columnNumber: 27
                                                                     }, this)
                                                                 }, void 0, false, {
                                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                                    lineNumber: 394,
+                                                                    lineNumber: 482,
                                                                     columnNumber: 25
                                                                 }, this)
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 383,
+                                                            lineNumber: 471,
                                                             columnNumber: 23
                                                         }, this),
                                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -1054,29 +1205,29 @@ function POSTerminalPage() {
                                                             ]
                                                         }, void 0, true, {
                                                             fileName: "[project]/pos/src/app/page.tsx",
-                                                            lineNumber: 403,
+                                                            lineNumber: 491,
                                                             columnNumber: 23
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "[project]/pos/src/app/page.tsx",
-                                                    lineNumber: 382,
+                                                    lineNumber: 470,
                                                     columnNumber: 21
                                                 }, this)
                                             ]
                                         }, item.id, true, {
                                             fileName: "[project]/pos/src/app/page.tsx",
-                                            lineNumber: 362,
+                                            lineNumber: 450,
                                             columnNumber: 19
                                         }, this))
                                 }, void 0, false, {
                                     fileName: "[project]/pos/src/app/page.tsx",
-                                    lineNumber: 360,
+                                    lineNumber: 448,
                                     columnNumber: 15
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 350,
+                                lineNumber: 438,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1104,7 +1255,7 @@ function POSTerminalPage() {
                                                 children: "Total Payable"
                                             }, void 0, false, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 418,
+                                                lineNumber: 506,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -1120,13 +1271,13 @@ function POSTerminalPage() {
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 421,
+                                                lineNumber: 509,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 417,
+                                        lineNumber: 505,
                                         columnNumber: 13
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1159,14 +1310,14 @@ function POSTerminalPage() {
                                                         size: 20
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 447,
+                                                        lineNumber: 535,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Pay via Dynamic UPI QR"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 428,
+                                                lineNumber: 516,
                                                 columnNumber: 15
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1193,38 +1344,38 @@ function POSTerminalPage() {
                                                         color: "var(--lime)"
                                                     }, void 0, false, {
                                                         fileName: "[project]/pos/src/app/page.tsx",
-                                                        lineNumber: 470,
+                                                        lineNumber: 558,
                                                         columnNumber: 17
                                                     }, this),
                                                     "Pay via Cash (Change Calc)"
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/pos/src/app/page.tsx",
-                                                lineNumber: 451,
+                                                lineNumber: 539,
                                                 columnNumber: 15
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/pos/src/app/page.tsx",
-                                        lineNumber: 427,
+                                        lineNumber: 515,
                                         columnNumber: 13
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/pos/src/app/page.tsx",
-                                lineNumber: 414,
+                                lineNumber: 502,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/pos/src/app/page.tsx",
-                        lineNumber: 325,
+                        lineNumber: 400,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 163,
+                lineNumber: 212,
                 columnNumber: 7
             }, this),
             isUPIOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$pos$2f$src$2f$components$2f$UPIPaymentModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["UPIPaymentModal"], {
@@ -1233,7 +1384,7 @@ function POSTerminalPage() {
                 onClose: ()=>setIsUPIOpen(false)
             }, void 0, false, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 483,
+                lineNumber: 571,
                 columnNumber: 9
             }, this),
             isCashOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$pos$2f$src$2f$components$2f$CashPaymentModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["CashPaymentModal"], {
@@ -1242,7 +1393,7 @@ function POSTerminalPage() {
                 onClose: ()=>setIsCashOpen(false)
             }, void 0, false, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 492,
+                lineNumber: 580,
                 columnNumber: 9
             }, this),
             activeReceipt && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$pos$2f$src$2f$components$2f$ReceiptModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ReceiptModal"], {
@@ -1250,24 +1401,24 @@ function POSTerminalPage() {
                 onNextCustomer: ()=>setActiveReceipt(null)
             }, void 0, false, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 501,
+                lineNumber: 589,
                 columnNumber: 9
             }, this),
             isSummaryOpen && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$pos$2f$src$2f$components$2f$ShiftSummaryModal$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["ShiftSummaryModal"], {
                 onClose: ()=>setIsSummaryOpen(false)
             }, void 0, false, {
                 fileName: "[project]/pos/src/app/page.tsx",
-                lineNumber: 509,
+                lineNumber: 597,
                 columnNumber: 9
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/pos/src/app/page.tsx",
-        lineNumber: 90,
+        lineNumber: 91,
         columnNumber: 5
     }, this);
 }
-_s(POSTerminalPage, "0Eh7O/dtI90hHtTYh1ci4EVZpk8=", false, function() {
+_s(POSTerminalPage, "1l78FRh53IHI3L0tawHVjMIU/xY=", false, function() {
     return [
         __TURBOPACK__imported__module__$5b$project$5d2f$pos$2f$src$2f$context$2f$POSContext$2e$tsx__$5b$app$2d$client$5d$__$28$ecmascript$29$__["usePOS"]
     ];

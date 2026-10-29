@@ -209,7 +209,7 @@ export default function CheckoutPage() {
         )}
 
         <form onSubmit={handleSubmitOrder}>
-          <div style={{ display: 'grid', gridTemplateColumns: '1.4fr 1fr', gap: '32px', alignItems: 'flex-start' }}>
+          <div className="checkout-main-grid">
             
             {/* Left Column: Delivery Address & Payment Method */}
             <div style={{ display: 'flex', flexDirection: 'column', gap: '24px' }}>
@@ -220,7 +220,7 @@ export default function CheckoutPage() {
                   <Truck size={20} color="var(--green-ink)" /> Delivery Address
                 </h3>
 
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+                <div className="responsive-form-grid-2">
                   <div className="form-group">
                     <label className="form-label" style={{ fontSize: '12px', fontWeight: 700 }}>
                       Full Name *

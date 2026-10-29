@@ -41,7 +41,7 @@ export default function FleetPage() {
   return (
     <div>
       {/* Header */}
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '28px' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: '16px', marginBottom: '28px' }}>
         <div>
           <span style={{ fontSize: '11px', fontWeight: 800, color: 'var(--green-ink)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: '4px' }}>
             Hardware Automation &bull; Farm Telemetry
@@ -63,7 +63,7 @@ export default function FleetPage() {
       </div>
 
       {/* Printers Grid */}
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '24px' }}>
+      <div className="admin-fleet-grid">
         {printers.map(printer => {
           const isPrinting = printer.status === 'Printing';
           return (

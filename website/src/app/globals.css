@@ -693,19 +693,129 @@ textarea:disabled {
   }
 }
 
-/* Responsive */
+/* Responsive Navigation & Grid Components */
+.site-mobile-toggle {
+  display: none !important;
+}
+
+@keyframes slideDownNav {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.pdp-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  gap: 48px;
+  align-items: flex-start;
+  margin-bottom: 60px;
+}
+
+.checkout-main-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 32px;
+  align-items: flex-start;
+}
+
+.responsive-form-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.responsive-form-grid-2-1 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* Tablet & Mobile Breakpoint (<= 900px) */
 @media (max-width: 900px) {
+  .site-header {
+    padding: 0 4vw;
+  }
+  .site-mobile-toggle {
+    display: flex !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
   .hero-section {
     grid-template-columns: 1fr;
     gap: 32px;
+    padding: 36px 4vw 50px;
   }
   .contact-layout {
     grid-template-columns: 1fr;
+    gap: 24px;
   }
   .hero-stats-grid {
     grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
   }
-  .nav-links {
-    display: none;
+  .pdp-main-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-bottom: 36px;
+  }
+  .checkout-main-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
   }
 }
+
+/* Small Smartphone Breakpoint (<= 640px) */
+@media (max-width: 640px) {
+  .section-wrap {
+    padding: 48px 4vw;
+  }
+  .brand-wrap span {
+    font-size: 15px;
+  }
+  .responsive-form-grid-2,
+  .responsive-form-grid-2-1 {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .equipment-strip {
+    flex-direction: column;
+    gap: 10px;
+    text-align: center;
+  }
+  .equipment-brands {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+  .hero-stats-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+/* Tiny Screen Breakpoint (<= 480px) */
+@media (max-width: 480px) {
+  .hide-on-xs {
+    display: none !important;
+  }
+  .site-nav-custom-btn span {
+    display: none;
+  }
+  .site-nav-custom-btn {
+    padding: 7px 10px !important;
+  }
+}
+
