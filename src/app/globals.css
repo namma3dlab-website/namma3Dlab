@@ -263,44 +263,37 @@ h1 em, h2 em, h3 em {
   color: var(--slate);
 }
 
-/* Precision Lab Showcase Widget */
-.lab-showcase-widget {
-  background: var(--navy-surface);
-  border: 1px solid var(--navy-border);
-  border-radius: 12px;
-  padding: 28px;
-  color: #FFFFFF;
-  box-shadow: 0 24px 60px rgba(10, 13, 20, 0.2);
-  position: relative;
-  overflow: hidden;
-}
-
-.lab-showcase-widget::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--lime), var(--cyan));
-}
-
-.widget-stat-row {
+/* Hero Visual — Seamless Blended 3D Simulation (No external card or dark attachment) */
+.hero-visual {
+  width: 100%;
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 10px 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  font-size: 12px;
+  justify-content: center;
 }
 
-.widget-stat-row span {
-  color: var(--slate-light);
+.hero-canvas-wrap {
+  width: 100%;
+  max-width: 540px;
+  height: 420px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  position: relative;
 }
 
-.widget-stat-row strong {
-  color: #FFFFFF;
-  font-family: var(--font-mono);
+.hero-inline-canvas {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  cursor: grab;
+  display: block;
+}
+
+.hero-inline-canvas:active {
+  cursor: grabbing;
 }
 
 /* Equipment Ticker */
@@ -536,6 +529,37 @@ h1 em, h2 em, h3 em {
   padding: 32px;
   position: relative;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+}
+
+/* Cart Slide-out Drawer */
+.cart-drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 13, 20, 0.65);
+  backdrop-filter: blur(6px);
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cart-drawer-window {
+  width: 100%;
+  max-width: 480px;
+  height: 100%;
+  background: #FFFFFF;
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  animation: slideDrawer 0.25s ease-out;
+}
+
+@keyframes slideDrawer {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }
 
 /* Responsive */

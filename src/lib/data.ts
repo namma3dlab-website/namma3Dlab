@@ -3,12 +3,16 @@ export interface Product {
   name: string;
   category: 'gifts' | 'decor' | 'idols' | 'gadgets';
   price: number;
+  originalPrice?: number;
   material: string;
   dimensions: string;
   leadTime: string;
   description: string;
   colorGradient: string;
   iconName: string;
+  colors?: string[];
+  inStock?: boolean;
+  badge?: string;
 }
 
 export interface MaterialSpec {
@@ -43,98 +47,130 @@ export const CATALOG_PRODUCTS: Product[] = [
     name: 'Geometric Spiral Fluted Vase',
     category: 'decor',
     price: 449,
+    originalPrice: 599,
     material: 'Silk PLA+',
     dimensions: '180 × 110 × 110 mm',
     leadTime: '24 Hours',
     description: 'Watertight parametric vase with spiral ribbing and metallic silk shimmer reflection.',
     colorGradient: 'linear-gradient(135deg, #0284C7, #38BDF8)',
-    iconName: 'Feather'
+    iconName: 'Feather',
+    colors: ['Silk Gold', 'Arctic Silver', 'Emerald Green', 'Matte Black'],
+    inStock: true,
+    badge: 'Bestseller'
   },
   {
     id: 'prod-idol',
     name: 'Intricate Cultural Deity Idol',
     category: 'idols',
     price: 799,
+    originalPrice: 1099,
     material: 'Ultra-Fine SLA Resin',
     dimensions: '120 × 75 × 65 mm',
     leadTime: '24–48 Hours',
     description: 'Museum-grade 0.05mm layer resolution with antique bronze cured acrylic finish.',
     colorGradient: 'linear-gradient(135deg, #D97706, #FBBF24)',
-    iconName: 'Sun'
+    iconName: 'Sun',
+    colors: ['Antique Bronze', 'Marble White', 'Obsidian Gold'],
+    inStock: true,
+    badge: '8K Ultra Detail'
   },
   {
     id: 'prod-lamp',
     name: 'Voronoi Ambient Desk Lamp',
     category: 'decor',
     price: 1299,
+    originalPrice: 1699,
     material: 'Tough PLA / Wood Composite',
     dimensions: '210 × 130 × 130 mm',
     leadTime: '48 Hours',
     description: 'Biomorphic Voronoi cell geometry creating dramatic light refraction. Includes warm USB LED puck.',
     colorGradient: 'linear-gradient(135deg, #16A34A, #4ADE80)',
-    iconName: 'Lamp'
+    iconName: 'Lamp',
+    colors: ['Wood Composite', 'Matte White', 'Charcoal'],
+    inStock: true,
+    badge: 'Includes LED'
   },
   {
     id: 'prod-keychain',
     name: 'Bespoke Dual-Tone Keychains',
     category: 'gifts',
     price: 199,
+    originalPrice: 299,
     material: 'PETG Impact Resistant',
     dimensions: '70 × 24 × 5 mm',
     leadTime: 'Same Day',
     description: 'Industrial dual-color fused typography. Impervious to pocket wear, keys, and water.',
     colorGradient: 'linear-gradient(135deg, #DB2777, #F472B6)',
-    iconName: 'Key'
+    iconName: 'Key',
+    colors: ['Black / Neon Lime', 'Navy / White', 'Red / Black'],
+    inStock: true,
+    badge: 'Same Day Dispatch'
   },
   {
     id: 'prod-stand',
     name: 'Modular Headphone & Phone Stand',
     category: 'gadgets',
     price: 649,
+    originalPrice: 899,
     material: 'Matte PETG + Weighted Base',
     dimensions: '240 × 120 × 140 mm',
     leadTime: '24 Hours',
     description: 'Ergonomic acoustic headphone cradle with concealed cable routing and anti-slip rubber pads.',
     colorGradient: 'linear-gradient(135deg, #4F46E5, #818CF8)',
-    iconName: 'Headphones'
+    iconName: 'Headphones',
+    colors: ['Matte Obsidian', 'Stealth Grey', 'Cyberpunk Lime'],
+    inStock: true,
+    badge: 'Popular'
   },
   {
     id: 'prod-litho',
     name: 'Custom Lithophane Photo Box',
     category: 'gifts',
     price: 1499,
+    originalPrice: 1999,
     material: 'Optical Translucent PLA',
     dimensions: '150 × 150 × 40 mm',
     leadTime: '48 Hours',
     description: 'Transforms your favorite portrait into a 3D relief that reveals high-definition imagery when backlit.',
     colorGradient: 'linear-gradient(135deg, #D97706, #FDE68A)',
-    iconName: 'Moon'
+    iconName: 'Moon',
+    colors: ['Warm Backlight', 'Pure White LED'],
+    inStock: true,
+    badge: 'Personalized'
   },
   {
     id: 'prod-organizer',
     name: 'Hexagonal Desktop Cable Organizer',
     category: 'gadgets',
     price: 349,
+    originalPrice: 499,
     material: 'PLA+ Matte Obsidian',
     dimensions: '110 × 95 × 30 mm',
     leadTime: '24 Hours',
     description: 'Magnetic snap modular organizing cells for USB-C, lightning cables, and SD cards.',
     colorGradient: 'linear-gradient(135deg, #059669, #34D399)',
-    iconName: 'Grid'
+    iconName: 'Grid',
+    colors: ['Matte Obsidian', 'Slate Grey', 'Mint Green'],
+    inStock: true
   },
   {
     id: 'prod-sign',
     name: 'Executive Nameplate & Desk Wedge',
     category: 'gifts',
     price: 599,
+    originalPrice: 799,
     material: 'Dual Extrusion Obsidian / Lime',
     dimensions: '220 × 55 × 35 mm',
     leadTime: '24 Hours',
     description: 'Personalized embossed desk title with dual-color lettering and integrated slant wedge.',
     colorGradient: 'linear-gradient(135deg, #84CC16, #BEF264)',
-    iconName: 'Sparkles'
+    iconName: 'Sparkles',
+    colors: ['Obsidian / Lime', 'Black / Gold', 'Walnut / White'],
+    inStock: true,
+    badge: 'Custom Name'
   }
 ];
+
 
 export const CAPABILITIES: CapabilityItem[] = [
   {

@@ -1,41 +1,69 @@
 'use client';
 
 import React from 'react';
-import { Box, ShoppingBag, MessageSquare, ArrowRight } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { Box, ShoppingBag, MessageSquare } from 'lucide-react';
+import { useCart } from '@/context/CartContext';
 
-interface NavbarProps {
-  cartCount: number;
-  onOpenCart: () => void;
-}
+export function Navbar() {
+  const pathname = usePathname();
+  const { totalCartCount, setIsCartOpen } = useCart();
 
-export function Navbar({ cartCount, onOpenCart }: NavbarProps) {
   return (
     <header className="site-header">
-      <a href="#" className="brand-wrap" aria-label="Namma 3D Lab Home">
+      <Link href="/" className="brand-wrap" aria-label="Namma 3D Lab Home">
         <div className="brand-icon-box">
           <Box size={18} strokeWidth={2.5} />
         </div>
         <span>Namma 3D Lab</span>
-      </a>
+      </Link>
 
       <nav className="nav-links">
-        <a href="#estimator">Instant Estimator</a>
-        <a href="#catalog">Catalog &amp; Gifts</a>
-        <a href="#capabilities">Capabilities</a>
-        <a href="#materials">Materials Matrix</a>
-        <a href="#contact">Contact &amp; Lab</a>
+        <Link
+          href="/shop"
+          style={{
+            color: pathname === '/shop' ? 'var(--navy)' : undefined,
+            fontWeight: pathname === '/shop' ? 800 : undefined,
+            borderBottom: pathname === '/shop' ? '2px solid var(--green-ink)' : undefined,
+            paddingBottom: '4px'
+          }}
+        >
+          Shop Pre-Printed
+        </Link>
+        <Link
+          href="/custom"
+          style={{
+            color: pathname === '/custom' ? 'var(--navy)' : undefined,
+            fontWeight: pathname === '/custom' ? 800 : undefined,
+            borderBottom: pathname === '/custom' ? '2px solid var(--green-ink)' : undefined,
+            paddingBottom: '4px'
+          }}
+        >
+          Custom 3D Quote &amp; Upload
+        </Link>
+        <Link
+          href="/#how-it-works"
+          style={{
+            color: pathname === '/' ? 'var(--navy)' : undefined,
+            paddingBottom: '4px'
+          }}
+        >
+          How It Works
+        </Link>
       </nav>
 
       <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
         <button
-          onClick={onOpenCart}
+          onClick={() => setIsCartOpen(true)}
           className="btn btn-light"
           style={{ position: 'relative', padding: '9px 14px' }}
           aria-label="View Cart"
+          type="button"
         >
           <ShoppingBag size={16} />
           <span>Cart</span>
-          {cartCount > 0 && (
+          {totalCartCount > 0 && (
             <span
               style={{
                 background: 'var(--green-ink)',
@@ -46,7 +74,7 @@ export function Navbar({ cartCount, onOpenCart }: NavbarProps) {
                 fontWeight: 900
               }}
             >
-              {cartCount}
+              {totalCartCount}
             </span>
           )}
         </button>
@@ -59,7 +87,7 @@ export function Navbar({ cartCount, onOpenCart }: NavbarProps) {
           style={{ padding: '9px 16px' }}
         >
           <MessageSquare size={14} />
-          <span>Inquire</span>
+          <span>WhatsApp</span>
         </a>
       </div>
     </header>

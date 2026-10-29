@@ -1,13 +1,51 @@
-{"timestamp":"00:00:10.762","source":"Server","level":"LOG","message":"- Cache Components enabled"}
-{"timestamp":"00:00:10.763","source":"Server","level":"LOG","message":"- Partial Prefetching enabled"}
-{"timestamp":"00:00:10.764","source":"Server","level":"LOG","message":""}
-{"timestamp":"00:00:20.657","source":"Server","level":"LOG","message":"○ Compiling / ..."}
-{"timestamp":"00:00:31.612","source":"Server","level":"WARN","message":"⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.\nRead more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport"}
-{"timestamp":"00:00:43.391","source":"Server","level":"WARN","message":"⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.\nRead more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport"}
-{"timestamp":"00:00:43.926","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:01:26.552","source":"Server","level":"WARN","message":"⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.\nRead more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport"}
-{"timestamp":"00:01:26.819","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
-{"timestamp":"00:01:50.071","source":"Server","level":"LOG","message":"✓ Compiled in 34ms"}
-{"timestamp":"00:02:27.674","source":"Server","level":"WARN","message":"⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.\nRead more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport"}
-{"timestamp":"00:02:40.997","source":"Server","level":"WARN","message":"⚠ Unsupported metadata themeColor is configured in metadata export in /. Please move it to viewport export instead.\nRead more: https://nextjs.org/docs/app/api-reference/functions/generate-viewport"}
-{"timestamp":"00:02:41.542","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:00:21.061","source":"Server","level":"LOG","message":"- Cache Components enabled"}
+{"timestamp":"00:00:21.061","source":"Server","level":"LOG","message":"- Partial Prefetching enabled"}
+{"timestamp":"00:00:21.062","source":"Server","level":"LOG","message":""}
+{"timestamp":"00:00:26.188","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:07:00.066","source":"Server","level":"LOG","message":"✓ Compiled in 83ms"}
+{"timestamp":"00:07:17.301","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"00:07:17.319","source":"Server","level":"LOG","message":"✓ Compiled in 95ms"}
+{"timestamp":"00:07:18.223","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:07:37.728","source":"Server","level":"LOG","message":"✓ Compiled in 42ms"}
+{"timestamp":"00:07:59.682","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:10:18.335","source":"Server","level":"LOG","message":"✓ Compiled in 50ms"}
+{"timestamp":"00:10:40.519","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:11:33.140","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:14:19.032","source":"Server","level":"LOG","message":"✓ Compiled in 76ms"}
+{"timestamp":"00:14:41.519","source":"Server","level":"LOG","message":"✓ Compiled in 22ms"}
+{"timestamp":"00:15:00.919","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:38:28.813","source":"Server","level":"LOG","message":"✓ Compiled in 31ms"}
+{"timestamp":"00:38:45.756","source":"Server","level":"LOG","message":"✓ Compiled in 41ms"}
+{"timestamp":"00:39:46.248","source":"Server","level":"LOG","message":"✓ Compiled in 75ms"}
+{"timestamp":"00:40:18.197","source":"Server","level":"LOG","message":"✓ Compiled in 35ms"}
+{"timestamp":"00:44:48.220","source":"Server","level":"LOG","message":"✓ Compiled in 24ms"}
+{"timestamp":"00:45:10.662","source":"Server","level":"LOG","message":"✓ Compiled in 9ms"}
+{"timestamp":"00:47:43.764","source":"Server","level":"LOG","message":"✓ Compiled in 23ms"}
+{"timestamp":"00:47:59.284","source":"Server","level":"LOG","message":"✓ Compiled in 15ms"}
+{"timestamp":"00:48:47.860","source":"Server","level":"LOG","message":"✓ Compiled in 84ms"}
+{"timestamp":"00:49:07.235","source":"Server","level":"LOG","message":"✓ Compiled in 28ms"}
+{"timestamp":"00:49:43.233","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:50:43.610","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"00:55:22.175","source":"Server","level":"LOG","message":"[QUOTE_LEAD_RECEIVED] {}"}
+{"timestamp":"01:00:25.063","source":"Server","level":"LOG","message":"✓ Compiled in 297ms"}
+{"timestamp":"01:00:25.213","source":"Browser","level":"ERROR","message":"Uncaught Error: useCart must be used within a CartProvider\n    at useCart (src/context/CartContext.tsx:112:11)\n    at Navbar (src/components/Navbar.tsx:11:52)\n    at Set.forEach (<anonymous>)\n    at Home (src/app/page.tsx:59:7)\n  \u001b[90m110 |\u001b[0m   \u001b[36mconst\u001b[0m context = useContext(\u001b[33mCartContext\u001b[0m);\n  \u001b[90m111 |\u001b[0m   \u001b[36mif\u001b[0m (!context) {\n\u001b[31m\u001b[1m>\u001b[0m \u001b[90m112 |\u001b[0m     \u001b[36mthrow\u001b[0m \u001b[36mnew\u001b[0m \u001b[33mError\u001b[0m(\u001b[32m'useCart must be used within a CartProvider'\u001b[0m);\n  \u001b[90m    |\u001b[0m           \u001b[31m\u001b[1m^\u001b[0m\n  \u001b[90m113 |\u001b[0m   }\n  \u001b[90m114 |\u001b[0m   \u001b[36mreturn\u001b[0m context;\n  \u001b[90m115 |\u001b[0m }"}
+{"timestamp":"01:00:25.215","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught Error: useCart must be used within a CartProvider\\u001b[39m\\n\\u001b[31m    at useCart (src/context/CartContext.tsx:112:11)\\n    at Navbar (src/components/Navbar.tsx:11:52)\\n    at Set.forEach (<anonymous>)\\n    at Home (src/app/page.tsx:59:7)\\u001b[39m\\n  \\u001b[90m110 |\\u001b[0m   \\u001b[36mconst\\u001b[0m context = useContext(\\u001b[33mCartContext\\u001b[0m);\\n  \\u001b[90m111 |\\u001b[0m   \\u001b[36mif\\u001b[0m (!context) {\\n\\u001b[31m\\u001b[1m>\\u001b[0m \\u001b[90m112 |\\u001b[0m     \\u001b[36mthrow\\u001b[0m \\u001b[36mnew\\u001b[0m \\u001b[33mError\\u001b[0m(\\u001b[32m'useCart must be used within a CartProvider'\\u001b[0m);\\n  \\u001b[90m    |\\u001b[0m           \\u001b[31m\\u001b[1m^\\u001b[0m\\n  \\u001b[90m113 |\\u001b[0m   }\\n  \\u001b[90m114 |\\u001b[0m   \\u001b[36mreturn\\u001b[0m context;\\n  \\u001b[90m115 |\\u001b[0m }\""}
+{"timestamp":"01:00:25.217","source":"Browser","level":"ERROR","message":"Uncaught Error: useCart must be used within a CartProvider\n    at useCart (src/context/CartContext.tsx:112:11)\n    at Navbar (src/components/Navbar.tsx:11:52)\n    at Set.forEach (<anonymous>)\n    at Home (src/app/page.tsx:59:7)\n  \u001b[90m110 |\u001b[0m   \u001b[36mconst\u001b[0m context = useContext(\u001b[33mCartContext\u001b[0m);\n  \u001b[90m111 |\u001b[0m   \u001b[36mif\u001b[0m (!context) {\n\u001b[31m\u001b[1m>\u001b[0m \u001b[90m112 |\u001b[0m     \u001b[36mthrow\u001b[0m \u001b[36mnew\u001b[0m \u001b[33mError\u001b[0m(\u001b[32m'useCart must be used within a CartProvider'\u001b[0m);\n  \u001b[90m    |\u001b[0m           \u001b[31m\u001b[1m^\u001b[0m\n  \u001b[90m113 |\u001b[0m   }\n  \u001b[90m114 |\u001b[0m   \u001b[36mreturn\u001b[0m context;\n  \u001b[90m115 |\u001b[0m }"}
+{"timestamp":"01:00:25.217","source":"Server","level":"ERROR","message":"[browser] \"\\u001b[31mUncaught Error: useCart must be used within a CartProvider\\u001b[39m\\n\\u001b[31m    at useCart (src/context/CartContext.tsx:112:11)\\n    at Navbar (src/components/Navbar.tsx:11:52)\\n    at Set.forEach (<anonymous>)\\n    at Home (src/app/page.tsx:59:7)\\u001b[39m\\n  \\u001b[90m110 |\\u001b[0m   \\u001b[36mconst\\u001b[0m context = useContext(\\u001b[33mCartContext\\u001b[0m);\\n  \\u001b[90m111 |\\u001b[0m   \\u001b[36mif\\u001b[0m (!context) {\\n\\u001b[31m\\u001b[1m>\\u001b[0m \\u001b[90m112 |\\u001b[0m     \\u001b[36mthrow\\u001b[0m \\u001b[36mnew\\u001b[0m \\u001b[33mError\\u001b[0m(\\u001b[32m'useCart must be used within a CartProvider'\\u001b[0m);\\n  \\u001b[90m    |\\u001b[0m           \\u001b[31m\\u001b[1m^\\u001b[0m\\n  \\u001b[90m113 |\\u001b[0m   }\\n  \\u001b[90m114 |\\u001b[0m   \\u001b[36mreturn\\u001b[0m context;\\n  \\u001b[90m115 |\\u001b[0m }\""}
+{"timestamp":"01:00:53.239","source":"Server","level":"LOG","message":"✓ Compiled in 104ms"}
+{"timestamp":"01:00:53.303","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:00:53.330","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:00:53.411","source":"Server","level":"WARN","message":"⚠ Fast Refresh had to perform a full reload due to a runtime error."}
+{"timestamp":"01:00:54.258","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:00:54.312","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:00:54.418","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:01:10.048","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"01:01:27.282","source":"Server","level":"LOG","message":"✓ Compiled in 29ms"}
+{"timestamp":"01:02:03.087","source":"Server","level":"LOG","message":"✓ Compiled in 40ms"}
+{"timestamp":"01:02:28.814","source":"Server","level":"LOG","message":"✓ Compiled in 94ms"}
+{"timestamp":"01:02:55.668","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:03:05.229","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:03:09.484","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}
+{"timestamp":"01:03:09.625","source":"Browser","level":"WARN","message":"Detected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior=\"smooth\"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior"}
+{"timestamp":"01:03:09.752","source":"Server","level":"WARN","message":"[browser] \"\\u001b[33mDetected `scroll-behavior: smooth` on the `<html>` element. To disable smooth scrolling during route transitions, add `data-scroll-behavior=\\\"smooth\\\"` to your <html> element. Learn more: https://nextjs.org/docs/messages/missing-data-scroll-behavior\\u001b[39m\""}
+{"timestamp":"01:03:55.224","source":"Browser","level":"INFO","message":"Download the React DevTools for a better development experience: https://react.dev/link/react-devtools"}

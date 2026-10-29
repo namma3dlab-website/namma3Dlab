@@ -1,123 +1,125 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Navbar } from '@/components/Navbar';
+import React from 'react';
+import Link from 'next/link';
 import { HeroSection } from '@/components/HeroSection';
-import { EstimatorSection } from '@/components/EstimatorSection';
-import { CatalogSection } from '@/components/CatalogSection';
-import { CapabilitiesSection } from '@/components/CapabilitiesSection';
-import { MaterialsSection } from '@/components/MaterialsSection';
-import { ContactSection } from '@/components/ContactSection';
+import { HowItWorksSection } from '@/components/HowItWorksSection';
 import { Footer } from '@/components/Footer';
-import { Modals, CartItem } from '@/components/Modals';
-import { Calculator, MessageCircle } from 'lucide-react';
+import { ShoppingBag, UploadCloud, ArrowRight, Sparkles, ShieldCheck, Zap } from 'lucide-react';
 
 export default function Home() {
-  const [cart, setCart] = useState<CartItem[]>([]);
-  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
-
-  const handleAddToCart = (item: { id: string; name: string; price: number; meta?: string }) => {
-    setCart(prev => {
-      const existing = prev.find(i => i.id === item.id);
-      if (existing) {
-        return prev.map(i => i.id === item.id ? { ...i, qty: i.qty + 1 } : i);
-      }
-      return [...prev, { ...item, qty: 1 }];
-    });
-  };
-
-  const totalCartCount = cart.reduce((sum, item) => sum + item.qty, 0);
-  const totalAmount = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
-
-  const handlePaymentSuccess = () => {
-    setCart([]);
-  };
-
   return (
     <main>
-      <Navbar cartCount={totalCartCount} onOpenCart={() => setIsCheckoutOpen(true)} />
-      
+      {/* Hero with seamless 3D print simulation */}
       <HeroSection />
-      
-      <EstimatorSection />
 
-      <CatalogSection onAddToCart={handleAddToCart} />
-
-      <CapabilitiesSection />
-
-      <MaterialsSection />
-
-      <ContactSection />
-
-      <Footer />
-
-      {/* Interactive Modals (Guest Checkout, Razorpay Simulator, GST Bill of Supply) */}
-      <Modals
-        isCheckoutOpen={isCheckoutOpen}
-        onCloseCheckout={() => setIsCheckoutOpen(false)}
-        cart={cart}
-        totalAmount={totalAmount}
-        onPaymentSuccess={handlePaymentSuccess}
-      />
-
-      {/* Floating Cart Pill Trigger */}
-      {totalCartCount > 0 && (
-        <div
-          style={{
-            position: 'fixed',
-            bottom: '24px',
-            right: '24px',
-            zIndex: 400,
-            background: 'var(--navy)',
-            color: '#FFFFFF',
-            padding: '12px 20px',
-            borderRadius: '50px',
-            display: 'flex',
-            alignItems: 'center',
-            gap: '12px',
-            boxShadow: '0 10px 30px rgba(0, 0, 0, 0.25)',
-            cursor: 'pointer'
-          }}
-          onClick={() => setIsCheckoutOpen(true)}
-        >
-          <span style={{ background: 'var(--green-ink)', color: '#FFFFFF', padding: '2px 8px', borderRadius: '12px', fontSize: '11px', fontWeight: 800 }}>
-            {totalCartCount}
-          </span>
-          <span style={{ fontSize: '13px', fontWeight: 800 }}>Review Cart (₹{totalAmount}) &rarr;</span>
+      {/* Two Clear Portals Showcase */}
+      <section className="section-wrap" style={{ background: '#FFFFFF', borderTop: '1px solid var(--line)', borderBottom: '1px solid var(--line)' }}>
+        <div className="section-head" style={{ textAlign: 'center', maxWidth: '700px', margin: '0 auto 48px' }}>
+          <span className="eyebrow lime">Choose Your Path</span>
+          <h2>How would you like to <em>work with us?</em></h2>
+          <p>
+            Whether buying curated ready-made products or manufacturing bespoke engineering prototypes, select your destination below.
+          </p>
         </div>
-      )}
 
-      {/* Mobile Sticky Conversion Strip */}
-      <div
-        style={{
-          display: 'none',
-          position: 'fixed',
-          bottom: 0,
-          left: 0,
-          right: 0,
-          background: 'rgba(248, 250, 252, 0.94)',
-          backdropFilter: 'blur(12px)',
-          borderTop: '1px solid var(--line)',
-          padding: '10px 16px',
-          zIndex: 450,
-          justifyContent: 'space-between',
-          gap: '8px'
-        }}
-        className="mobile-bottom-strip"
-      >
-        <a href="#estimator" className="btn btn-light" style={{ flex: 1, padding: '8px 10px', fontSize: '11px' }}>
-          <Calculator size={14} /> Instant Quote
-        </a>
-        <a
-          href="https://wa.me/919876543210?text=Hi%20Namma%203D%20Lab%2C%20I%20want%20to%20order"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="btn btn-whatsapp"
-          style={{ flex: 1, padding: '8px 10px', fontSize: '11px' }}
-        >
-          <MessageCircle size={14} /> WhatsApp Order
-        </a>
-      </div>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '32px' }}>
+          
+          {/* Portal 1: Pre-Printed Store */}
+          <div
+            style={{
+              background: 'var(--paper)',
+              border: '1px solid var(--line)',
+              borderRadius: '16px',
+              padding: '36px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              boxShadow: '0 10px 30px rgba(10, 13, 20, 0.04)',
+              transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+            }}
+          >
+            <div>
+              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'var(--green-subtle)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--green-ink)', marginBottom: '20px' }}>
+                <ShoppingBag size={26} />
+              </div>
+              <span className="eyebrow lime" style={{ margin: 0 }}>Pillar 1 &bull; Direct E-Commerce</span>
+              <h3 style={{ margin: '8px 0 12px', fontSize: '24px', color: 'var(--navy)' }}>
+                Shop Pre-Printed Creations
+              </h3>
+              <p style={{ color: 'var(--slate)', fontSize: '14px', lineHeight: 1.6, margin: '0 0 20px' }}>
+                Explore ready-to-ship Voronoi desk lamps, cultural deity idols, modular headphone stands, and custom embossed executive nameplates. Hand-finished and quality inspected.
+              </p>
+
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
+                <span className="badge-pill" style={{ background: '#FFFFFF', border: '1px solid var(--line)', fontSize: '11px' }}>
+                  24–48h Dispatch
+                </span>
+                <span className="badge-pill" style={{ background: '#FFFFFF', border: '1px solid var(--line)', fontSize: '11px' }}>
+                  Starts at ₹199
+                </span>
+                <span className="badge-pill" style={{ background: '#FFFFFF', border: '1px solid var(--line)', fontSize: '11px' }}>
+                  Live Nameplate Studio
+                </span>
+              </div>
+            </div>
+
+            <Link href="/shop" className="btn btn-lime" style={{ width: '100%', padding: '14px', fontSize: '14px' }}>
+              Enter Pre-Printed Store <ArrowRight size={16} />
+            </Link>
+          </div>
+
+          {/* Portal 2: Custom 3D Printing & CAD Quote */}
+          <div
+            style={{
+              background: 'var(--navy-surface)',
+              color: '#FFFFFF',
+              border: '1px solid var(--navy-border)',
+              borderRadius: '16px',
+              padding: '36px',
+              display: 'flex',
+              flexDirection: 'column',
+              justifyContent: 'space-between',
+              boxShadow: '0 20px 50px rgba(10, 13, 20, 0.15)',
+              transition: 'transform 0.25s ease, box-shadow 0.25s ease'
+            }}
+          >
+            <div>
+              <div style={{ width: '52px', height: '52px', borderRadius: '12px', background: 'rgba(141, 198, 63, 0.18)', display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--lime)', marginBottom: '20px' }}>
+                <UploadCloud size={26} />
+              </div>
+              <span className="eyebrow lime" style={{ margin: 0 }}>Pillar 2 &bull; On-Demand Manufacturing</span>
+              <h3 style={{ margin: '8px 0 12px', fontSize: '24px', color: '#FFFFFF' }}>
+                Custom 3D Quote &amp; CAD
+              </h3>
+              <p style={{ color: 'var(--slate-light)', fontSize: '14px', lineHeight: 1.6, margin: '0 0 20px' }}>
+                Upload your 3D model (.STL, .OBJ) for instant mesh volume calculation, or request CAD modeling for a broken part or sketch. Leads auto-sync to Google Sheets and prefill in WhatsApp.
+              </p>
+
+              <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '28px' }}>
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '11px' }}>
+                  &plusmn;0.10mm Micron Grade
+                </span>
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: '#FFFFFF', fontSize: '11px' }}>
+                  Instant Volume Slicing
+                </span>
+                <span className="badge-pill" style={{ background: 'rgba(255, 255, 255, 0.08)', color: 'var(--lime)', fontSize: '11px' }}>
+                  Google Sheets &amp; WhatsApp Sync
+                </span>
+              </div>
+            </div>
+
+            <Link href="/custom" className="btn btn-lime" style={{ width: '100%', padding: '14px', fontSize: '14px' }}>
+              Upload File &amp; Get Quote <ArrowRight size={16} />
+            </Link>
+          </div>
+
+        </div>
+      </section>
+
+      {/* Simple 3-step explanation */}
+      <HowItWorksSection />
+
+      {/* Footer */}
+      <Footer />
     </main>
   );
 }
