@@ -3,14 +3,27 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { CartItem } from '@/components/CartDrawer';
 
+export type AddToCartPayload = {
+  id: string;
+  slug?: string;
+  name: string;
+  price: number;
+  meta?: string;
+  variant?: string;
+  imageGradient?: string;
+  imageUrl?: string;
+  iconName?: string;
+  qty?: number;
+};
+
 interface CartContextType {
   cart: CartItem[];
   isCartOpen: boolean;
   setIsCartOpen: (open: boolean) => void;
   totalCartCount: number;
   totalAmount: number;
-  addToCart: (item: { id: string; name: string; price: number; meta?: string }) => void;
-  buyNow: (item: { id: string; name: string; price: number; meta?: string }) => void;
+  addToCart: (item: AddToCartPayload) => void;
+  buyNow: (item: AddToCartPayload) => void;
   updateQty: (id: string, delta: number) => void;
   removeItem: (id: string) => void;
   clearCart: () => void;
@@ -46,17 +59,29 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [cart, isMounted]);
 
-  const addToCart = (item: { id: string; name: string; price: number; meta?: string }) => {
+  const addToCart = (item: AddToCartPayload) => {
+    const quantityToAdd = item.qty && item.qty > 0 ? item.qty : 1;
     setCart(prev => {
       const existing = prev.find(i => i.id === item.id);
       if (existing) {
-        return prev.map(i => i.id === item.id ? { ...i, qty: i.qty + 1 } : i);
+        return prev.map(i => i.id === item.id ? { ...i, qty: i.qty + quantityToAdd } : i);
       }
-      return [...prev, { ...item, qty: 1 }];
+      return [...prev, {
+        id: item.id,
+        slug: item.slug,
+        name: item.name,
+        price: item.price,
+        qty: quantityToAdd,
+        meta: item.meta,
+        variant: item.variant,
+        imageGradient: item.imageGradient,
+        imageUrl: item.imageUrl,
+        iconName: item.iconName
+      }];
     });
   };
 
-  const buyNow = (item: { id: string; name: string; price: number; meta?: string }) => {
+  const buyNow = (item: AddToCartPayload) => {
     addToCart(item);
     setIsCartOpen(true);
   };

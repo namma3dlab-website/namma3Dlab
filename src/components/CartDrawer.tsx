@@ -5,10 +5,15 @@ import { X, Trash2, ShoppingBag, ArrowRight, MessageCircle, ShieldCheck, CheckCi
 
 export interface CartItem {
   id: string;
+  slug?: string;
   name: string;
   price: number;
   qty: number;
   meta?: string;
+  variant?: string;
+  imageGradient?: string;
+  imageUrl?: string;
+  iconName?: string;
 }
 
 export interface CustomerDetails {
@@ -37,7 +42,6 @@ export function CartDrawer({
   onClearCart
 }: CartDrawerProps) {
   const [checkoutStep, setCheckoutStep] = useState<'cart' | 'shipping' | 'success'>('cart');
-  const [paymentMethod, setPaymentMethod] = useState<'whatsapp' | 'upi'>('whatsapp');
   
   const [customer, setCustomer] = useState<CustomerDetails>({
     name: '',
@@ -69,38 +73,11 @@ export function CartDrawer({
       return;
     }
 
-    if (paymentMethod === 'whatsapp') {
-      // Format structured WhatsApp Order Message
-      const itemsList = cart.map((item, idx) => `${idx + 1}. ${item.name}\n   Qty: ${item.qty} × ₹${item.price} = ₹${item.price * item.qty}${item.meta ? ` (${item.meta})` : ''}`).join('\n\n');
-      
-      const msg = `🛍️ Hi Namma 3D Lab! I want to place a pre-printed store order:
-
-📦 Order Items:
-${itemsList}
-
-💰 Payment Summary:
-• Subtotal: ₹${subtotal}
-• Delivery: ${deliveryFee === 0 ? 'FREE Bangalore Express' : `₹${deliveryFee}`}
-• Total Payable: ₹${finalTotal} (50% Advance: ₹${Math.round(finalTotal * 0.5)})
-
-📍 Shipping Address:
-• Name: ${customer.name}
-• Phone: ${customer.phone}
-• Address: ${customer.address}, ${customer.city} - ${customer.pincode}
-
-Please share UPI payment QR for order confirmation & dispatch!`;
-
-      window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
-      onClearCart();
-      onClose();
-      setCheckoutStep('cart');
-    } else {
-      // Instant Simulated UPI Checkout
-      setInvoiceNumber(`INV-N3D-${Math.floor(1000 + Math.random() * 9000)}`);
-      setInvoiceDate(new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }));
-      setCheckoutStep('success');
-      onClearCart();
-    }
+    // Direct Online Order Confirmation & Instant Invoice
+    setInvoiceNumber(`INV-N3D-${Math.floor(1000 + Math.random() * 9000)}`);
+    setInvoiceDate(new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' }));
+    setCheckoutStep('success');
+    onClearCart();
   };
 
   return (
@@ -315,66 +292,14 @@ Please share UPI payment QR for order confirmation & dispatch!`;
               </div>
             </div>
 
-            <h4 style={{ margin: '0 0 12px', fontSize: '14px', color: 'var(--navy)', textTransform: 'uppercase', letterSpacing: '0.05em' }}>
-              Choose Checkout Method
-            </h4>
-
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '24px' }}>
-              <label
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '14px',
-                  borderRadius: '8px',
-                  border: paymentMethod === 'whatsapp' ? '2px solid #25D366' : '1px solid var(--line)',
-                  background: paymentMethod === 'whatsapp' ? '#F0FDF4' : '#FFFFFF',
-                  cursor: 'pointer'
-                }}
-              >
-                <input
-                  type="radio"
-                  name="pm"
-                  checked={paymentMethod === 'whatsapp'}
-                  onChange={() => setPaymentMethod('whatsapp')}
-                />
-                <div>
-                  <strong style={{ fontSize: '13px', color: '#166534', display: 'flex', alignItems: 'center', gap: '6px' }}>
-                    <MessageCircle size={15} color="#25D366" /> Order Directly on WhatsApp (Fastest)
-                  </strong>
-                  <span style={{ fontSize: '11px', color: 'var(--slate)' }}>
-                    Opens chat with your exact cart &amp; address prefilled. Pay 50% advance via UPI QR.
-                  </span>
-                </div>
-              </label>
-
-              <label
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '12px',
-                  padding: '14px',
-                  borderRadius: '8px',
-                  border: paymentMethod === 'upi' ? '2px solid var(--navy)' : '1px solid var(--line)',
-                  background: paymentMethod === 'upi' ? 'var(--surface-alt)' : '#FFFFFF',
-                  cursor: 'pointer'
-                }}
-              >
-                <input
-                  type="radio"
-                  name="pm"
-                  checked={paymentMethod === 'upi'}
-                  onChange={() => setPaymentMethod('upi')}
-                />
-                <div>
-                  <strong style={{ fontSize: '13px', color: 'var(--navy)' }}>
-                    Direct Online Checkout &amp; Instant Invoice
-                  </strong>
-                  <span style={{ fontSize: '11px', color: 'var(--slate)' }}>
-                    Pay via UPI / Cards simulation and download official GST receipt.
-                  </span>
-                </div>
-              </label>
+            <div style={{ background: 'var(--surface-alt)', border: '1px solid var(--line)', borderRadius: '12px', padding: '16px', marginBottom: '24px' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '6px' }}>
+                <ShieldCheck size={18} color="var(--green-ink)" />
+                <strong style={{ fontSize: '13px', color: 'var(--navy)' }}>Direct Order Confirmation</strong>
+              </div>
+              <p style={{ margin: 0, fontSize: '12px', color: 'var(--slate)', lineHeight: 1.5 }}>
+                Place your order directly. Instant order number and downloadable GST invoice generated upon confirmation.
+              </p>
             </div>
 
             <div style={{ marginTop: 'auto', display: 'flex', gap: '10px' }}>
@@ -388,10 +313,10 @@ Please share UPI payment QR for order confirmation & dispatch!`;
               </button>
               <button
                 type="submit"
-                className={`btn ${paymentMethod === 'whatsapp' ? 'btn-whatsapp' : 'btn-lime'}`}
-                style={{ flex: 2 }}
+                className="btn btn-lime"
+                style={{ flex: 2, display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
               >
-                {paymentMethod === 'whatsapp' ? 'Place Order on WhatsApp' : `Pay ₹${finalTotal} Now`}
+                <ShieldCheck size={16} /> Place Order &bull; ₹{finalTotal}
               </button>
             </div>
           </form>

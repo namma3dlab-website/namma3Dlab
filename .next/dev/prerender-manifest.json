@@ -1,6 +1,1 @@
-{
-  "version": 4,
-  "routes": {},
-  "dynamicRoutes": {},
-  "notFoundRoutes": []
-}
+{"version":4,"routes":{"/products/[slug]":{},"/products/geometric-spiral-fluted-vase":{},"/products/intricate-cultural-deity-idol":{},"/products/voronoi-ambient-desk-lamp":{},"/products/bespoke-dual-tone-keychains":{},"/products/modular-headphone-phone-stand":{},"/products/custom-lithophane-photo-box":{},"/products/hexagonal-desktop-cable-organizer":{},"/products/executive-nameplate-desk-wedge":{}},"dynamicRoutes":{"/products/[slug]":{"dataRoute":null,"dataRouteRegex":null,"fallback":"/products/[slug]/page","fallbackRevalidate":false,"fallbackRootParams":[],"fallbackRouteParams":[{"paramName":"slug","paramType":"dynamic"}],"fallbackSourceRoute":"/products/[slug]","routeRegex":"^\\/products\\/([^/]+?)(?:\\/)?$","allowHeader":[]}},"notFoundRoutes":[]}

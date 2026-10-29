@@ -26,8 +26,8 @@ export function Footer() {
             </strong>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', color: 'var(--slate)' }}>
               <a href="#estimator">Instant Cost Engine</a>
-              <a href="#catalog">Shop Catalog &amp; Gifts</a>
-              <a href="#catalog">Nameplate Studio</a>
+              <a href="/shop">Shop Catalog &amp; Decor</a>
+              <a href="/custom">Custom 3D Printing</a>
               <a href="#materials">Materials Matrix</a>
             </div>
           </div>

@@ -43,7 +43,7 @@ export function CapabilitiesSection() {
             </p>
 
             <ul>
-              {cap.benefits.map((benefit, i) => (
+              {cap.benefits.map((benefit: string, i: number) => (
                 <li key={i}>{benefit}</li>
               ))}
             </ul>

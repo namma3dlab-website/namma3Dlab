@@ -12,7 +12,7 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$x$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__X$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/x.mjs [app-ssr] (ecmascript) <export default as X>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$trash$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Trash2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/trash.mjs [app-ssr] (ecmascript) <export default as Trash2>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$bag$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingBag$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shopping-bag.mjs [app-ssr] (ecmascript) <export default as ShoppingBag>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-circle.mjs [app-ssr] (ecmascript) <export default as MessageCircle>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shield-check.mjs [app-ssr] (ecmascript) <export default as ShieldCheck>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$circle$2d$check$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__CheckCircle2$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/circle-check.mjs [app-ssr] (ecmascript) <export default as CheckCircle2>");
 'use client';
 ;
@@ -20,7 +20,6 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$re
 ;
 function CartDrawer({ isOpen, onClose, cart, onUpdateQty, onRemoveItem, onClearCart }) {
     const [checkoutStep, setCheckoutStep] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('cart');
-    const [paymentMethod, setPaymentMethod] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('whatsapp');
     const [customer, setCustomer] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
         name: '',
         phone: '',
@@ -45,40 +44,15 @@ function CartDrawer({ isOpen, onClose, cart, onUpdateQty, onRemoveItem, onClearC
             alert('Please fill in all shipping fields to complete your order.');
             return;
         }
-        if (paymentMethod === 'whatsapp') {
-            // Format structured WhatsApp Order Message
-            const itemsList = cart.map((item, idx)=>`${idx + 1}. ${item.name}\n   Qty: ${item.qty} × ₹${item.price} = ₹${item.price * item.qty}${item.meta ? ` (${item.meta})` : ''}`).join('\n\n');
-            const msg = `🛍️ Hi Namma 3D Lab! I want to place a pre-printed store order:
-
-📦 Order Items:
-${itemsList}
-
-💰 Payment Summary:
-• Subtotal: ₹${subtotal}
-• Delivery: ${deliveryFee === 0 ? 'FREE Bangalore Express' : `₹${deliveryFee}`}
-• Total Payable: ₹${finalTotal} (50% Advance: ₹${Math.round(finalTotal * 0.5)})
-
-📍 Shipping Address:
-• Name: ${customer.name}
-• Phone: ${customer.phone}
-• Address: ${customer.address}, ${customer.city} - ${customer.pincode}
-
-Please share UPI payment QR for order confirmation & dispatch!`;
-            window.open(`https://wa.me/919876543210?text=${encodeURIComponent(msg)}`, '_blank');
-            onClearCart();
-            onClose();
-            setCheckoutStep('cart');
-        } else {
-            // Instant Simulated UPI Checkout
-            setInvoiceNumber(`INV-N3D-${Math.floor(1000 + Math.random() * 9000)}`);
-            setInvoiceDate(new Date().toLocaleDateString('en-IN', {
-                day: 'numeric',
-                month: 'short',
-                year: 'numeric'
-            }));
-            setCheckoutStep('success');
-            onClearCart();
-        }
+        // Direct Online Order Confirmation & Instant Invoice
+        setInvoiceNumber(`INV-N3D-${Math.floor(1000 + Math.random() * 9000)}`);
+        setInvoiceDate(new Date().toLocaleDateString('en-IN', {
+            day: 'numeric',
+            month: 'short',
+            year: 'numeric'
+        }));
+        setCheckoutStep('success');
+        onClearCart();
     };
     return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
         className: "cart-drawer-overlay",
@@ -108,7 +82,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     color: "var(--green-ink)"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 113,
+                                    lineNumber: 90,
                                     columnNumber: 13
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -124,13 +98,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 114,
+                                    lineNumber: 91,
                                     columnNumber: 13
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 112,
+                            lineNumber: 89,
                             columnNumber: 11
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -149,18 +123,18 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                 size: 18
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 124,
+                                lineNumber: 101,
                                 columnNumber: 13
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 120,
+                            lineNumber: 97,
                             columnNumber: 11
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CartDrawer.tsx",
-                    lineNumber: 111,
+                    lineNumber: 88,
                     columnNumber: 9
                 }, this),
                 checkoutStep === 'cart' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -196,12 +170,12 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     size: 32
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 134,
+                                    lineNumber: 111,
                                     columnNumber: 19
                                 }, this)
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 133,
+                                lineNumber: 110,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
@@ -213,7 +187,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                 children: "Your cart is empty"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 136,
+                                lineNumber: 113,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -225,7 +199,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                 children: "Explore our pre-printed catalog to add desk decor, lamps, or sacred idols."
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 137,
+                                lineNumber: 114,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -238,13 +212,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                 children: "Browse Shop →"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 140,
+                                lineNumber: 117,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/CartDrawer.tsx",
-                        lineNumber: 132,
+                        lineNumber: 109,
                         columnNumber: 15
                     }, this) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
                         children: [
@@ -279,7 +253,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                         children: item.name
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                                        lineNumber: 165,
+                                                        lineNumber: 142,
                                                         columnNumber: 25
                                                     }, this),
                                                     item.meta && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -292,7 +266,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                         children: item.meta
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                                        lineNumber: 169,
+                                                        lineNumber: 146,
                                                         columnNumber: 27
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -317,19 +291,19 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                                 ]
                                                             }, void 0, true, {
                                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                                lineNumber: 175,
+                                                                lineNumber: 152,
                                                                 columnNumber: 44
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                                        lineNumber: 173,
+                                                        lineNumber: 150,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 164,
+                                                lineNumber: 141,
                                                 columnNumber: 23
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -359,7 +333,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                                 children: "−"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                                lineNumber: 182,
+                                                                lineNumber: 159,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
@@ -371,7 +345,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                                 children: item.qty
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                                lineNumber: 189,
+                                                                lineNumber: 166,
                                                                 columnNumber: 27
                                                             }, this),
                                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -385,13 +359,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                                 children: "+"
                                                             }, void 0, false, {
                                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                                lineNumber: 192,
+                                                                lineNumber: 169,
                                                                 columnNumber: 27
                                                             }, this)
                                                         ]
                                                     }, void 0, true, {
                                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                                        lineNumber: 181,
+                                                        lineNumber: 158,
                                                         columnNumber: 25
                                                     }, this),
                                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -406,29 +380,29 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                             size: 16
                                                         }, void 0, false, {
                                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                                            lineNumber: 207,
+                                                            lineNumber: 184,
                                                             columnNumber: 27
                                                         }, this)
                                                     }, void 0, false, {
                                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                                        lineNumber: 201,
+                                                        lineNumber: 178,
                                                         columnNumber: 25
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 180,
+                                                lineNumber: 157,
                                                 columnNumber: 23
                                             }, this)
                                         ]
                                     }, item.id, true, {
                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                        lineNumber: 153,
+                                        lineNumber: 130,
                                         columnNumber: 21
                                     }, this))
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 151,
+                                lineNumber: 128,
                                 columnNumber: 17
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -453,7 +427,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 children: "Items Subtotal"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 217,
+                                                lineNumber: 194,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -466,13 +440,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 218,
+                                                lineNumber: 195,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                        lineNumber: 216,
+                                        lineNumber: 193,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -490,7 +464,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 children: "Bangalore Delivery"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 221,
+                                                lineNumber: 198,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -500,13 +474,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 children: deliveryFee === 0 ? 'FREE' : `₹${deliveryFee}`
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 222,
+                                                lineNumber: 199,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                        lineNumber: 220,
+                                        lineNumber: 197,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -526,7 +500,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 children: "Estimated Total"
                                             }, void 0, false, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 228,
+                                                lineNumber: 205,
                                                 columnNumber: 21
                                             }, this),
                                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -540,13 +514,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                                lineNumber: 229,
+                                                lineNumber: 206,
                                                 columnNumber: 21
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                        lineNumber: 227,
+                                        lineNumber: 204,
                                         columnNumber: 19
                                     }, this),
                                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -561,24 +535,24 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                         children: "Proceed to Shipping →"
                                     }, void 0, false, {
                                         fileName: "[project]/src/components/CartDrawer.tsx",
-                                        lineNumber: 232,
+                                        lineNumber: 209,
                                         columnNumber: 19
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 215,
+                                lineNumber: 192,
                                 columnNumber: 17
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/CartDrawer.tsx",
-                        lineNumber: 150,
+                        lineNumber: 127,
                         columnNumber: 15
                     }, this)
                 }, void 0, false, {
                     fileName: "[project]/src/components/CartDrawer.tsx",
-                    lineNumber: 130,
+                    lineNumber: 107,
                     columnNumber: 11
                 }, this),
                 checkoutStep === 'shipping' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("form", {
@@ -602,7 +576,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                             children: "Delivery Address (Bangalore Dispatch)"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 249,
+                            lineNumber: 226,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -620,7 +594,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     children: "Full Name *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 254,
+                                    lineNumber: 231,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -638,13 +612,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 255,
+                                    lineNumber: 232,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 253,
+                            lineNumber: 230,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -662,7 +636,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     children: "WhatsApp Phone Number *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 267,
+                                    lineNumber: 244,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -680,13 +654,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 268,
+                                    lineNumber: 245,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 266,
+                            lineNumber: 243,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -704,7 +678,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     children: "Delivery Street Address *"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 280,
+                                    lineNumber: 257,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("textarea", {
@@ -723,13 +697,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     }
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 281,
+                                    lineNumber: 258,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 279,
+                            lineNumber: 256,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -752,7 +726,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "City"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 294,
+                                            lineNumber: 271,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -769,13 +743,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 295,
+                                            lineNumber: 272,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 293,
+                                    lineNumber: 270,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -790,7 +764,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "Pincode *"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 305,
+                                            lineNumber: 282,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
@@ -808,176 +782,80 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             }
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 306,
+                                            lineNumber: 283,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 304,
+                                    lineNumber: 281,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 292,
-                            columnNumber: 13
-                        }, this),
-                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h4", {
-                            style: {
-                                margin: '0 0 12px',
-                                fontSize: '14px',
-                                color: 'var(--navy)',
-                                textTransform: 'uppercase',
-                                letterSpacing: '0.05em'
-                            },
-                            children: "Choose Checkout Method"
-                        }, void 0, false, {
-                            fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 318,
+                            lineNumber: 269,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                             style: {
-                                display: 'flex',
-                                flexDirection: 'column',
-                                gap: '10px',
+                                background: 'var(--surface-alt)',
+                                border: '1px solid var(--line)',
+                                borderRadius: '12px',
+                                padding: '16px',
                                 marginBottom: '24px'
                             },
                             children: [
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
                                     style: {
                                         display: 'flex',
                                         alignItems: 'center',
-                                        gap: '12px',
-                                        padding: '14px',
-                                        borderRadius: '8px',
-                                        border: paymentMethod === 'whatsapp' ? '2px solid #25D366' : '1px solid var(--line)',
-                                        background: paymentMethod === 'whatsapp' ? '#F0FDF4' : '#FFFFFF',
-                                        cursor: 'pointer'
+                                        gap: '8px',
+                                        marginBottom: '6px'
                                     },
                                     children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            type: "radio",
-                                            name: "pm",
-                                            checked: paymentMethod === 'whatsapp',
-                                            onChange: ()=>setPaymentMethod('whatsapp')
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__["ShieldCheck"], {
+                                            size: 18,
+                                            color: "var(--green-ink)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 335,
+                                            lineNumber: 297,
                                             columnNumber: 17
                                         }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                    style: {
-                                                        fontSize: '13px',
-                                                        color: '#166534',
-                                                        display: 'flex',
-                                                        alignItems: 'center',
-                                                        gap: '6px'
-                                                    },
-                                                    children: [
-                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"], {
-                                                            size: 15,
-                                                            color: "#25D366"
-                                                        }, void 0, false, {
-                                                            fileName: "[project]/src/components/CartDrawer.tsx",
-                                                            lineNumber: 343,
-                                                            columnNumber: 21
-                                                        }, this),
-                                                        " Order Directly on WhatsApp (Fastest)"
-                                                    ]
-                                                }, void 0, true, {
-                                                    fileName: "[project]/src/components/CartDrawer.tsx",
-                                                    lineNumber: 342,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    style: {
-                                                        fontSize: '11px',
-                                                        color: 'var(--slate)'
-                                                    },
-                                                    children: "Opens chat with your exact cart & address prefilled. Pay 50% advance via UPI QR."
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/CartDrawer.tsx",
-                                                    lineNumber: 345,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
+                                            style: {
+                                                fontSize: '13px',
+                                                color: 'var(--navy)'
+                                            },
+                                            children: "Direct Order Confirmation"
+                                        }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 341,
+                                            lineNumber: 298,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 323,
+                                    lineNumber: 296,
                                     columnNumber: 15
                                 }, this),
-                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
                                     style: {
-                                        display: 'flex',
-                                        alignItems: 'center',
-                                        gap: '12px',
-                                        padding: '14px',
-                                        borderRadius: '8px',
-                                        border: paymentMethod === 'upi' ? '2px solid var(--navy)' : '1px solid var(--line)',
-                                        background: paymentMethod === 'upi' ? 'var(--surface-alt)' : '#FFFFFF',
-                                        cursor: 'pointer'
+                                        margin: 0,
+                                        fontSize: '12px',
+                                        color: 'var(--slate)',
+                                        lineHeight: 1.5
                                     },
-                                    children: [
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
-                                            type: "radio",
-                                            name: "pm",
-                                            checked: paymentMethod === 'upi',
-                                            onChange: ()=>setPaymentMethod('upi')
-                                        }, void 0, false, {
-                                            fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 363,
-                                            columnNumber: 17
-                                        }, this),
-                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
-                                            children: [
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
-                                                    style: {
-                                                        fontSize: '13px',
-                                                        color: 'var(--navy)'
-                                                    },
-                                                    children: "Direct Online Checkout & Instant Invoice"
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/CartDrawer.tsx",
-                                                    lineNumber: 370,
-                                                    columnNumber: 19
-                                                }, this),
-                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                                    style: {
-                                                        fontSize: '11px',
-                                                        color: 'var(--slate)'
-                                                    },
-                                                    children: "Pay via UPI / Cards simulation and download official GST receipt."
-                                                }, void 0, false, {
-                                                    fileName: "[project]/src/components/CartDrawer.tsx",
-                                                    lineNumber: 373,
-                                                    columnNumber: 19
-                                                }, this)
-                                            ]
-                                        }, void 0, true, {
-                                            fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 369,
-                                            columnNumber: 17
-                                        }, this)
-                                    ]
-                                }, void 0, true, {
+                                    children: "Place your order directly. Instant order number and downloadable GST invoice generated upon confirmation."
+                                }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 351,
+                                    lineNumber: 300,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 322,
+                            lineNumber: 295,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -997,31 +875,45 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     children: "← Back"
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 381,
+                                    lineNumber: 306,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                                     type: "submit",
-                                    className: `btn ${paymentMethod === 'whatsapp' ? 'btn-whatsapp' : 'btn-lime'}`,
+                                    className: "btn btn-lime",
                                     style: {
-                                        flex: 2
+                                        flex: 2,
+                                        display: 'flex',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        gap: '8px'
                                     },
-                                    children: paymentMethod === 'whatsapp' ? 'Place Order on WhatsApp' : `Pay ₹${finalTotal} Now`
-                                }, void 0, false, {
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shield$2d$check$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShieldCheck$3e$__["ShieldCheck"], {
+                                            size: 16
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/components/CartDrawer.tsx",
+                                            lineNumber: 319,
+                                            columnNumber: 17
+                                        }, this),
+                                        " Place Order • ₹",
+                                        finalTotal
+                                    ]
+                                }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 389,
+                                    lineNumber: 314,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 380,
+                            lineNumber: 305,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CartDrawer.tsx",
-                    lineNumber: 248,
+                    lineNumber: 225,
                     columnNumber: 11
                 }, this),
                 checkoutStep === 'success' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1047,12 +939,12 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                 size: 32
                             }, void 0, false, {
                                 fileName: "[project]/src/components/CartDrawer.tsx",
-                                lineNumber: 404,
+                                lineNumber: 329,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 403,
+                            lineNumber: 328,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
@@ -1064,7 +956,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                             children: "Order Successfully Placed!"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 406,
+                            lineNumber: 331,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
@@ -1079,7 +971,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                     children: invoiceNumber
                                 }, void 0, false, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 408,
+                                    lineNumber: 333,
                                     columnNumber: 23
                                 }, this),
                                 " generated on ",
@@ -1088,7 +980,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 407,
+                            lineNumber: 332,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1116,7 +1008,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "Customer:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 413,
+                                            lineNumber: 338,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -1128,13 +1020,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 414,
+                                            lineNumber: 339,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 412,
+                                    lineNumber: 337,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1151,7 +1043,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "Shipping To:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 417,
+                                            lineNumber: 342,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -1162,13 +1054,13 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             ]
                                         }, void 0, true, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 418,
+                                            lineNumber: 343,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 416,
+                                    lineNumber: 341,
                                     columnNumber: 15
                                 }, this),
                                 /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
@@ -1184,7 +1076,7 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "Status:"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 421,
+                                            lineNumber: 346,
                                             columnNumber: 17
                                         }, this),
                                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("strong", {
@@ -1194,19 +1086,19 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                                             children: "Queued for Dispatch (24h)"
                                         }, void 0, false, {
                                             fileName: "[project]/src/components/CartDrawer.tsx",
-                                            lineNumber: 422,
+                                            lineNumber: 347,
                                             columnNumber: 17
                                         }, this)
                                     ]
                                 }, void 0, true, {
                                     fileName: "[project]/src/components/CartDrawer.tsx",
-                                    lineNumber: 420,
+                                    lineNumber: 345,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 411,
+                            lineNumber: 336,
                             columnNumber: 13
                         }, this),
                         /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
@@ -1222,24 +1114,24 @@ Please share UPI payment QR for order confirmation & dispatch!`;
                             children: "Continue Shopping"
                         }, void 0, false, {
                             fileName: "[project]/src/components/CartDrawer.tsx",
-                            lineNumber: 426,
+                            lineNumber: 351,
                             columnNumber: 13
                         }, this)
                     ]
                 }, void 0, true, {
                     fileName: "[project]/src/components/CartDrawer.tsx",
-                    lineNumber: 402,
+                    lineNumber: 327,
                     columnNumber: 11
                 }, this)
             ]
         }, void 0, true, {
             fileName: "[project]/src/components/CartDrawer.tsx",
-            lineNumber: 108,
+            lineNumber: 85,
             columnNumber: 7
         }, this)
     }, void 0, false, {
         fileName: "[project]/src/components/CartDrawer.tsx",
-        lineNumber: 107,
+        lineNumber: 84,
         columnNumber: 5
     }, this);
 }
@@ -1372,7 +1264,8 @@ var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$navigation$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/navigation.js [app-ssr] (ecmascript)");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$box$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Box$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/box.mjs [app-ssr] (ecmascript) <export default as Box>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$bag$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingBag$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/shopping-bag.mjs [app-ssr] (ecmascript) <export default as ShoppingBag>");
-var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-square.mjs [app-ssr] (ecmascript) <export default as MessageSquare>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/sparkles.mjs [app-ssr] (ecmascript) <export default as Sparkles>");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__ = __turbopack_context__.i("[project]/node_modules/lucide-react/dist/esm/icons/message-circle.mjs [app-ssr] (ecmascript) <export default as MessageCircle>");
 var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$context$2f$CartContext$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/context/CartContext.tsx [app-ssr] (ecmascript)");
 'use client';
 ;
@@ -1407,6 +1300,10 @@ function Navbar() {
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                        style: {
+                            fontFamily: 'var(--font-heading), sans-serif',
+                            fontWeight: 800
+                        },
                         children: "Namma 3D Lab"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
@@ -1423,43 +1320,51 @@ function Navbar() {
                 className: "nav-links",
                 children: [
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/shop",
+                        href: "/",
                         style: {
-                            color: pathname === '/shop' ? 'var(--navy)' : undefined,
-                            fontWeight: pathname === '/shop' ? 800 : undefined,
-                            borderBottom: pathname === '/shop' ? '2px solid var(--green-ink)' : undefined,
-                            paddingBottom: '4px'
+                            color: pathname === '/' ? 'var(--navy)' : 'var(--slate)',
+                            fontWeight: pathname === '/' ? 800 : 600,
+                            padding: '6px 14px',
+                            borderRadius: '20px',
+                            background: pathname === '/' ? 'var(--surface-alt)' : 'transparent',
+                            transition: 'all 0.2s ease'
                         },
-                        children: "Shop Pre-Printed"
+                        children: "Home"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
                         lineNumber: 23,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/custom",
+                        href: "/shop",
                         style: {
-                            color: pathname === '/custom' ? 'var(--navy)' : undefined,
-                            fontWeight: pathname === '/custom' ? 800 : undefined,
-                            borderBottom: pathname === '/custom' ? '2px solid var(--green-ink)' : undefined,
-                            paddingBottom: '4px'
+                            color: pathname === '/shop' || pathname.startsWith('/products/') ? 'var(--navy)' : 'var(--slate)',
+                            fontWeight: pathname === '/shop' || pathname.startsWith('/products/') ? 800 : 600,
+                            padding: '6px 14px',
+                            borderRadius: '20px',
+                            background: pathname === '/shop' || pathname.startsWith('/products/') ? 'var(--surface-alt)' : 'transparent',
+                            transition: 'all 0.2s ease'
                         },
-                        children: "Custom 3D Quote & Upload"
+                        children: "Shop Catalogue"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 34,
+                        lineNumber: 36,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
-                        href: "/#how-it-works",
+                        href: "/cart",
                         style: {
-                            color: pathname === '/' ? 'var(--navy)' : undefined,
-                            paddingBottom: '4px'
+                            color: pathname === '/cart' ? 'var(--navy)' : 'var(--slate)',
+                            fontWeight: pathname === '/cart' ? 800 : 600,
+                            padding: '6px 14px',
+                            borderRadius: '20px',
+                            background: pathname === '/cart' ? 'var(--surface-alt)' : 'transparent',
+                            transition: 'all 0.2s ease'
                         },
-                        children: "How It Works"
+                        children: "Cart"
                     }, void 0, false, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 45,
+                        lineNumber: 49,
                         columnNumber: 9
                     }, this)
                 ]
@@ -1472,35 +1377,62 @@ function Navbar() {
                 style: {
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '12px'
+                    gap: '10px'
                 },
                 children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"], {
+                        href: "/custom",
+                        className: "btn btn-lime",
+                        style: {
+                            padding: '8px 16px',
+                            fontSize: '12px',
+                            borderRadius: '20px',
+                            boxShadow: pathname === '/custom' ? '0 0 0 2px var(--navy)' : '0 2px 8px rgba(141, 198, 63, 0.25)'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$sparkles$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__Sparkles$3e$__["Sparkles"], {
+                                size: 14
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Navbar.tsx",
+                                lineNumber: 76,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                children: "Custom"
+                            }, void 0, false, {
+                                fileName: "[project]/src/components/Navbar.tsx",
+                                lineNumber: 77,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/components/Navbar.tsx",
+                        lineNumber: 66,
+                        columnNumber: 9
+                    }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
                         onClick: ()=>setIsCartOpen(true),
                         className: "btn btn-light",
                         style: {
                             position: 'relative',
-                            padding: '9px 14px'
+                            padding: '8px 12px',
+                            borderRadius: '10px'
                         },
-                        "aria-label": "View Cart",
+                        "aria-label": "View Shopping Cart",
                         type: "button",
                         children: [
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$shopping$2d$bag$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__ShoppingBag$3e$__["ShoppingBag"], {
                                 size: 16
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 64,
-                                columnNumber: 11
-                            }, this),
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
-                                children: "Cart"
-                            }, void 0, false, {
-                                fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 65,
+                                lineNumber: 88,
                                 columnNumber: 11
                             }, this),
                             totalCartCount > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
                                 style: {
+                                    position: 'absolute',
+                                    top: '-4px',
+                                    right: '-4px',
                                     background: 'var(--green-ink)',
                                     color: '#FFFFFF',
                                     borderRadius: '50%',
@@ -1511,48 +1443,57 @@ function Navbar() {
                                 children: totalCartCount
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 67,
+                                lineNumber: 90,
                                 columnNumber: 13
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 57,
+                        lineNumber: 81,
                         columnNumber: 9
                     }, this),
                     /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("a", {
-                        href: "https://wa.me/919876543210?text=Hi%20Namma%203D%20Lab%2C%20I%20have%20an%20additive%20manufacturing%20inquiry",
+                        href: "https://wa.me/919876543210?text=Hi%20Namma%203D%20Lab%2C%20I%20have%20an%20order%20inquiry",
                         target: "_blank",
                         rel: "noopener noreferrer",
                         className: "btn btn-dark",
                         style: {
-                            padding: '9px 16px'
+                            padding: '8px 14px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '6px',
+                            borderRadius: '10px'
                         },
+                        "aria-label": "Contact on WhatsApp",
                         children: [
-                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$square$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageSquare$3e$__["MessageSquare"], {
-                                size: 14
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$lucide$2d$react$2f$dist$2f$esm$2f$icons$2f$message$2d$circle$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__$3c$export__default__as__MessageCircle$3e$__["MessageCircle"], {
+                                size: 14,
+                                color: "#25D366"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 89,
+                                lineNumber: 117,
                                 columnNumber: 11
                             }, this),
                             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    fontSize: '12px'
+                                },
                                 children: "WhatsApp"
                             }, void 0, false, {
                                 fileName: "[project]/src/components/Navbar.tsx",
-                                lineNumber: 90,
+                                lineNumber: 118,
                                 columnNumber: 11
                             }, this)
                         ]
                     }, void 0, true, {
                         fileName: "[project]/src/components/Navbar.tsx",
-                        lineNumber: 82,
+                        lineNumber: 109,
                         columnNumber: 9
                     }, this)
                 ]
             }, void 0, true, {
                 fileName: "[project]/src/components/Navbar.tsx",
-                lineNumber: 56,
+                lineNumber: 64,
                 columnNumber: 7
             }, this)
         ]
@@ -1607,19 +1548,28 @@ function CartProvider({ children }) {
         isMounted
     ]);
     const addToCart = (item)=>{
+        const quantityToAdd = item.qty && item.qty > 0 ? item.qty : 1;
         setCart((prev)=>{
             const existing = prev.find((i)=>i.id === item.id);
             if (existing) {
                 return prev.map((i)=>i.id === item.id ? {
                         ...i,
-                        qty: i.qty + 1
+                        qty: i.qty + quantityToAdd
                     } : i);
             }
             return [
                 ...prev,
                 {
-                    ...item,
-                    qty: 1
+                    id: item.id,
+                    slug: item.slug,
+                    name: item.name,
+                    price: item.price,
+                    qty: quantityToAdd,
+                    meta: item.meta,
+                    variant: item.variant,
+                    imageGradient: item.imageGradient,
+                    imageUrl: item.imageUrl,
+                    iconName: item.iconName
                 }
             ];
         });
@@ -1666,7 +1616,7 @@ function CartProvider({ children }) {
         children: children
     }, void 0, false, {
         fileName: "[project]/src/context/CartContext.tsx",
-        lineNumber: 90,
+        lineNumber: 115,
         columnNumber: 5
     }, this);
 }

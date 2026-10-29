@@ -5,7 +5,7 @@ import { MATERIALS_MATRIX } from '@/lib/data';
 import { ArrowRight, ShieldCheck, Thermometer, Zap, Layers } from 'lucide-react';
 
 export function MaterialsSection() {
-  const getBadgeStyle = (type: string) => {
+  const getBadgeStyle = (type?: string) => {
     switch (type) {
       case 'popular': return { background: '#DCFCE7', color: '#15803D' };
       case 'durable': return { background: '#CFFAFE', color: '#0369A1' };

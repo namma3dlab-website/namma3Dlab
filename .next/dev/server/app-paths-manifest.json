@@ -1,6 +1,8 @@
 {
-  "/api/quote-lead/route": "app/api/quote-lead/route.js",
+  "/cart/page": "app/cart/page.js",
+  "/checkout/page": "app/checkout/page.js",
   "/custom/page": "app/custom/page.js",
   "/page": "app/page.js",
+  "/products/[slug]/page": "app/products/[slug]/page.js",
   "/shop/page": "app/shop/page.js"
 }

@@ -1,0 +1,46 @@
+1:"$Sreact.fragment"
+2:"/_next/static/chunks/1tq6ppe__m8m-.js"
+3:"/_next/static/chunks/2cj0q4mk7so17.js"
+4:I[92205,["$2","$3"],"ClientLayout"]
+5:I[39756,["$2","$3"],"default"]
+6:I[37457,["$2","$3"],"default"]
+11:I[97367,["$2","$3"],"OutletBoundary"]
+12:"$Sreact.suspense"
+16:"ViewportBoundary"
+17:I[97367,["$2","$3"],"$16"]
+18:"MetadataBoundary"
+19:I[97367,["$2","$3"],"$18"]
+:HL["/_next/static/chunks/0dy155t2arxe0.css","style"]
+8:X
+9:X
+9:300
+c:X
+c:C
+15:X
+f:[["children",{"s":"__PAGE__","h":49314,"d":{"r":["$","$1","c",{"children":["$L10",[["$","script","script-0",{"src":"/_next/static/chunks/1ln_e8sx-52hm.js","async":true}]],["$","$L11",null,{"children":["$","$12",null,{"name":"Next.MetadataOutlet","children":"$@13"}]}]]}],"p":"$@14","v":"$15","s":"$9"}}]]
+d:[["children",{"s":{"n":"slug","t":"d","k":null,"s":[]},"h":49250,"d":{"r":["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@e","v":"$c","s":"$9"},"c":"$Qf"}]]
+a:[["children",{"s":"products","h":49250,"d":{"r":["$","$1","c",{"children":[null,["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}]}]]}],"p":"$@b","v":"$c","s":"$9"},"c":"$Qd"}]]
+1c:X
+1f:X
+0:{"t":{"t":{"s":"","h":49234,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0dy155t2arxe0.css","precedence":"next"}],["$","script","script-0",{"src":"/_next/static/chunks/1tq6ppe__m8m-.js","async":true}],["$","script","script-1",{"src":"/_next/static/chunks/2cj0q4mk7so17.js","async":true}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L4",null,{"children":["$","$L5",null,{"parallelRouterKey":"children","template":["$","$L6",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]}]}]]}],"p":"$@7","v":"$8","s":"$9"},"c":"$Qa"},"h":{"r":["$","$1","h",{"children":[null,["$","$L17",null,{"children":[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}],["$","meta","2",{"name":"theme-color","content":"#0A0D14"}]]}],["$","$L19",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$12",null,{"name":"Next.Metadata","children":"$L1a"}]}],null]}],null]}],"p":"$@1b","v":"$1c","s":"$9"}},"a":"$@1d","u":"$@1e","b":"ONMOvKqKqYwnU9c0eWLc0","r":"$1f"}
+20:"/_next/static/chunks/1ln_e8sx-52hm.js"
+21:"ProductDetailClient"
+22:I[92355,["$2","$3","$20"],"$21"]
+24:I[27201,["$2","$3"],"IconMark"]
+15:T4,slug1c:T4,slug9:C
+1c:C
+1f:C
+15:C
+8:C
+10:["$","main",null,{"style":{"background":"var(--paper)","minHeight":"100vh","paddingTop":"28px"},"children":[["$","$L22",null,{"product":{"id":"prod-vase","slug":"geometric-spiral-fluted-vase","name":"Geometric Spiral Fluted Vase","category":"decor","price":449,"originalPrice":599,"material":"Silk PLA+","dimensions":"180 × 110 × 110 mm","leadTime":"24 Hours","description":"Watertight parametric vase with spiral ribbing and metallic silk shimmer reflection. Crafted using continuous single-perimeter vase mode for flawless layer transition without seam lines.","colorGradient":"linear-gradient(135deg, #0284C7, #38BDF8)","iconName":"Feather","colors":["Silk Gold","Arctic Silver","Emerald Green","Matte Black"],"inStock":true,"badge":"Bestseller","rating":4.9,"reviewsCount":38,"features":["Watertight single-perimeter spiral extrusion","Reflective metallic silk finish","Includes silicone non-scratch desk pads","Optimized for dried botanicals and fresh stems"],"specs":{"Print Technology":"FDM (Fused Deposition Modeling)","Layer Resolution":"0.16 mm Ultra-Smooth","Material Grade":"Silk PLA+ Biopolymer","Net Weight":"145 grams","Waterproof":"Yes (Hydrostatic tested 24h)"}},"relatedProducts":[{"id":"prod-idol","slug":"intricate-cultural-deity-idol","name":"Intricate Cultural Deity Idol","category":"idols","price":799,"originalPrice":1099,"material":"Ultra-Fine SLA Resin","dimensions":"120 × 75 × 65 mm","leadTime":"24–48 Hours","description":"Museum-grade 0.05mm layer resolution with antique bronze cured acrylic finish. Printed on 8K monochrome LCD resin engines to capture microscopic facial features and intricate ornaments.","colorGradient":"linear-gradient(135deg, #D97706, #FBBF24)","iconName":"Sun","colors":["Antique Bronze","Marble White","Obsidian Gold"],"inStock":true,"badge":"8K Ultra Detail","rating":5,"reviewsCount":52,"features":["8K High-Definition MSLA Resin curing","0.05 mm invisible layer lines","Post-cured in dual-wavelength UV chambers","Hand-finished antique bronze patina"],"specs":{"Print Technology":"SLA / MSLA (Photopolymer Resin)","Layer Resolution":"0.05 mm (50 Microns)","Material Grade":"High-Impact Engineering Tough Resin","Net Weight":"180 grams solid","Surface Finish":"Matte Acrylic Sealed"}},{"id":"prod-lamp","slug":"voronoi-ambient-desk-lamp","name":"Voronoi Ambient Desk Lamp","category":"decor","price":1299,"originalPrice":1699,"material":"Tough PLA / Wood Composite","dimensions":"210 × 130 × 130 mm","leadTime":"48 Hours","description":"Biomorphic Voronoi cell geometry creating dramatic ambient light refraction. Includes an energy-efficient warm USB LED puck light with inline on/off toggle.","colorGradient":"linear-gradient(135deg, #16A34A, #4ADE80)","iconName":"Lamp","colors":["Wood Composite","Matte White","Charcoal"],"inStock":true,"badge":"Includes LED","rating":4.8,"reviewsCount":24,"features":["Parametric Voronoi geometric cellular lattice","Warm white 3000K USB LED puck included","Low thermal emission, safe for overnight desk use","Braided 1.5m USB cable with switch"],"specs":{"Print Technology":"High-Speed CoreXY FDM","Layer Resolution":"0.20 mm Adaptive","Material Grade":"Heat-Resistant Tough PLA","Power Supply":"5V USB Type-A (Universal)","Cable Length":"1.5 Meters Braided"}},{"id":"prod-keychain","slug":"bespoke-dual-tone-keychains","name":"Bespoke Dual-Tone Keychains","category":"gifts","price":199,"originalPrice":299,"material":"PETG Impact Resistant","dimensions":"70 × 24 × 5 mm","leadTime":"Same Day","description":"Industrial dual-color fused typography. Impervious to pocket wear, car keys, and water. Perfect everyday carry accessory or personalized token.","colorGradient":"linear-gradient(135deg, #DB2777, #F472B6)","iconName":"Key","colors":["Black / Neon Lime","Navy / White","Red / Black"],"inStock":true,"badge":"Same Day Dispatch","rating":4.9,"reviewsCount":89,"features":["Dual-extrusion lettering fused into the base (not painted)","Includes stainless steel split ring and carabiner","Impact-proof PETG polymer construction","Scratch and water resistant"],"specs":{"Print Technology":"Multi-Material FDM Co-extrusion","Layer Resolution":"0.12 mm Fine","Material Grade":"PETG Copolymer","Hardware":"304 Stainless Steel Ring","Weight":"18 grams"}}]}],"$L23"]}]
+13:null
+1a:[["$","title","0",{"children":"Geometric Spiral Fluted Vase | Namma 3D Lab"}],["$","meta","1",{"name":"description","content":"Watertight parametric vase with spiral ribbing and metallic silk shimmer reflection. Crafted using continuous single-perimeter vase mode for flawless layer transition without seam lines."}],["$","meta","2",{"property":"og:title","content":"Geometric Spiral Fluted Vase — ₹449"}],["$","meta","3",{"property":"og:description","content":"Watertight parametric vase with spiral ribbing and metallic silk shimmer reflection. Crafted using continuous single-perimeter vase mode for flawless layer transition without seam lines."}],["$","meta","4",{"name":"twitter:card","content":"summary"}],["$","meta","5",{"name":"twitter:title","content":"Geometric Spiral Fluted Vase — ₹449"}],["$","meta","6",{"name":"twitter:description","content":"Watertight parametric vase with spiral ribbing and metallic silk shimmer reflection. Crafted using continuous single-perimeter vase mode for flawless layer transition without seam lines."}],["$","link","7",{"rel":"icon","href":"/favicon.ico?favicon.117ezoe8m31dk.ico","sizes":"48x48","type":"image/x-icon"}],["$","$L24","8",{}]]
+1e:false
+25:I[13642,["$2","$3","$20"],"Footer"]
+23:["$","$L25",null,{}]
+1d:3385
+e:"$undefined"
+b:"$undefined"
+7:"$undefined"
+1b:"$undefined"
+14:"$undefined"
